@@ -5,6 +5,10 @@ import {
 } from './components/navbar.js'
 
 import {
+    Dashboard
+} from './components/dashboard.js'
+
+import {
     MainTemplate
 } from './templates/main-template.js'
 
@@ -12,7 +16,7 @@ import {
 new Vue({
     el: '#app', // This should be the same as your <div id=""> from earlier.
     components: {
-        'navbar': Navbar
+        'navbar': Navbar, 'dashboard': Dashboard
     },
     mode : 'history',
     router,
