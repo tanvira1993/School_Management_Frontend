@@ -1,5 +1,7 @@
 import Vue from './assets/vue.esm.browser.min.js'
 import {router} from './routes.js'
+
+
 import {
     Navbar
 } from './components/navbar.js'
@@ -11,6 +13,11 @@ import {
 import {
     MainTemplate
 } from './templates/main-template.js'
+
+import {
+    OrgCreate
+} from './components/organization/create.js'
+
 
 
 new Vue({

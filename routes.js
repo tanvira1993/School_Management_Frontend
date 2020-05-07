@@ -1,7 +1,12 @@
 import { Login } from './components/login.js'
 import { Dashboard } from './components/dashboard.js'
 import { Test } from './components/test.js'
+
+import { OrgCreate } from './components/organization/create.js'
+import { OrgIndex } from './components/organization/index.js'
+
 import Vue from './assets/vue.esm.browser.min.js'
+
 
 Vue.use(VueRouter)
 
@@ -21,212 +26,27 @@ const routing =
 	name: "Dashboard",
 	meta: {requiresAuth: true},
 	children: [
-		{path: 'test', component: Test, name: "Dashboard.test"}
+
+		//route space for ziadul
+		{path: 'test', component: Test, name: "Test"},
+		{path: 'organization', component: OrgIndex, name: "organizationIndex"},
+
+
+
+
+
+		//route space for tanvir
+
+
+
+
+
+		//route space for hashmi
 	]
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//rotu for tanvir
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//route for hashmi
-
-	]
+]
 
 
 
