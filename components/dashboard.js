@@ -1,4 +1,5 @@
 import { DashboardTemplate } from '../templates/dashboard-template.js'
+import { base_url} from "../global.js";
 
 const Dashboard = {
   template: DashboardTemplate,
@@ -6,11 +7,13 @@ const Dashboard = {
   methods: {
     logout(){
       let self = this;
-      axios.get('http://127.0.0.1:8000/api/logout').then(function(responce){
+      let url = base_url+'api/logout';
+      axios.get(url).then(function(responce){
         console.log(responce.data);
       })
       localStorage.removeItem("token") 
-			self.$router.push({name: "Login"});
+      localStorage.removeItem("idUser") 
+      self.$router.push({name: "Login"});
     }
   },
 }

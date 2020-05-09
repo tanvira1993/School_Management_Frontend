@@ -42,11 +42,11 @@ const routing =
 
 
 		//route space for hashmi
+		]
+	}
+
+
 	]
-}
-
-
-]
 
 
 
