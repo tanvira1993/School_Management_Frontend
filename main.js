@@ -29,8 +29,9 @@ new Vue({
     router,
     template: MainTemplate,
 
-    mounted:function(){
-    	this.validateLogin()    	
+    mounted: async function(){  	
+    	await this.validateLogin();
+    	await this.headerConfig();
     	
     	console.log("from main");
 
@@ -48,7 +49,7 @@ new Vue({
 
     		window.axios.interceptors.request.use(
     			config => {
-    				
+
     				if (token) {
     					config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
     					config.headers['token'] = token;
@@ -77,7 +78,6 @@ new Vue({
     		})
     		.then(function (response) {
     			console.log(response);
-    			self.headerConfig();
     			//Dashboard redirect
     		})
     		.catch(function (error) {

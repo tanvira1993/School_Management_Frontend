@@ -19,9 +19,9 @@ const Test = {
 			axios.get(url)
 			.then(function (response) {				
 				console.log('stay login',response)
-    			//Dashboard redirect
+				
 
-    		})
+			})
 			.catch(function (error) {
 				if(error.message == 'Request failed with status code 401'){
 					console.log('confirm logout')
