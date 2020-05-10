@@ -2,7 +2,7 @@ import { Login } from './components/login.js'
 import { Dashboard } from './components/dashboard.js'
 import { Test } from './components/test.js'
 
-import { OrgCreate } from './components/organization/create.js'
+import { OrganizationCreate } from './components/organization/create.js'
 import { OrgIndex } from './components/organization/index.js'
 
 import Vue from './assets/vue.esm.browser.min.js'
@@ -29,7 +29,12 @@ const routing =
 
 		//route space for ziadul
 		{path: 'test', component: Test, name: "Test"},
+
+
+		// all routes about organizations
+
 		{path: 'organization', component: OrgIndex, name: "organizationIndex"},
+		{path: 'organization/create', component: OrganizationCreate, name: "organizationCreate"},
 
 
 

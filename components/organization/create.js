@@ -1,11 +1,11 @@
-import  OrgCreateTemp  from "../../templates/organization-templates/create-template.js";
+import  OrganizationCreateTemplate  from "../../templates/organization-templates/create-template.js";
 
 
-const OrgCreate = {
-	template: OrgCreateTemp,
+const OrganizationCreate = {
+	template: OrganizationCreateTemplate,
 	
 }
 
 
-export { OrgCreate }
+export { OrganizationCreate }
 

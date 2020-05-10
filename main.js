@@ -14,9 +14,6 @@ import {
 	MainTemplate
 } from './templates/main-template.js'
 
-import {
-	OrgCreate
-} from './components/organization/create.js'
 
 
 
@@ -29,7 +26,8 @@ new Vue({
     router,
     template: MainTemplate,
 
-    mounted: async function(){  	
+    mounted: async function(){ 
+		iziToast.info({    title: 'Hello',    message: 'Welcome!', }); 	
     	await this.validateLogin();
     	await this.headerConfig();
     	
@@ -78,12 +76,12 @@ new Vue({
     		})
     		.then(function (response) {
     			console.log(response);
-    			//Dashboard redirect
+    			self.$router.push({name: "Dashboard"});
     		})
     		.catch(function (error) {
     			console.log(error);
     			console.log('error from main');
-    			//Login Page redirect
+    			self.$router.push({name: "Login"});
 
     		});
 

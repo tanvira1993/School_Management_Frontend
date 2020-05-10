@@ -85,14 +85,14 @@ const DashboardTemplate = `
         
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Branch</span>
+            <i class="fa fa-edit"></i> <span> Organizations</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""></i> Create</a></li>
-            <li><a href=""></i> List</a></li>
+            <li><router-link to="/organization/create"></i> Create<router-link></li>
+            <li><router-link to="/organization"></i> List<router-link></li>
           </ul>
         </li>
       </ul>
