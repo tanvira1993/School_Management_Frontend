@@ -12,7 +12,7 @@ const OrganizationCreateTemplate = `
               <div class="box-body">
                 <div class="form-group">
                   <label for="title">Title</label>
-                  <input type="text" class="form-control" id="title">
+                  <input type="text" class="form-control" id="title" v-model="organization.title">
                 </div>
                 
                 
@@ -20,9 +20,11 @@ const OrganizationCreateTemplate = `
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" @click.prevent="submit()">Submit</button>
               </div>
             </form>
+
+            <button class="btn btn-primary" @click.prevent="test()">test</button>
           </div>
           
 
