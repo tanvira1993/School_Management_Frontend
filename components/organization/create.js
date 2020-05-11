@@ -6,17 +6,17 @@ const OrganizationCreate = {
 	template: OrganizationCreateTemplate,
 
 	data() {
+		
 		return {
 			organization: {
-				title: '', created_by : localStorage.getItem("idUser"),
+				title : ''
 			}
 		}
 	},
 
 	methods: {
 		submit(){
-			
-			axios.post("http://127.0.0.1:8000/api/organization",{title: "ziad"}).then(function (response) {
+			axios.post("http://127.0.0.1:8000/api/organization",this.organization).then(function (response) {
 				console.log(response);
 			});
 		},

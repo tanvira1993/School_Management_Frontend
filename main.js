@@ -27,7 +27,16 @@ new Vue({
     template: MainTemplate,
 
     mounted: async function(){ 
-		iziToast.info({    title: 'Hello',    message: 'Welcome!', }); 	
+    	iziToast.info({    title: 'Hello',    message: 'Welcome!', }); 	
+    	swal({
+    		content: {
+    			element: "input",
+    			attributes: {
+    				placeholder: "Type your password",
+    				type: "password",
+    			},
+    		},
+    	});
     	await this.validateLogin();
     	await this.headerConfig();
     	
@@ -49,7 +58,7 @@ new Vue({
     			config => {
 
     				if (token) {
-    					config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+    					config.headers['Content-Type'] = 'application/json';
     					config.headers['token'] = token;
     					config.headers['user_id'] = id;
     				}
@@ -76,14 +85,15 @@ new Vue({
     		})
     		.then(function (response) {
     			console.log(response);
-    			self.$router.push({name: "Dashboard"});
+    			// self.$router.push({name: "Dashboard"});
     		})
     		.catch(function (error) {
     			console.log(error);
     			console.log('error from main');
-    			self.$router.push({name: "Login"});
+    			// self.$router.push({name: "Login"});
 
-    		});
+
+            });
 
     	}
     }
