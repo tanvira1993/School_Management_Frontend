@@ -3,9 +3,10 @@ import { Dashboard } from './components/dashboard.js'
 import { Test } from './components/test.js'
 
 import { OrganizationCreate } from './components/organization/create.js'
+import { BranchIndex } from './components/branch/branch-index.js'
 import { OrgIndex } from './components/organization/index.js'
 
-import Vue from './assets/vue.esm.browser.min.js'
+import Vue from './assets/vue.esm.browser.min.js' 
 
 
 Vue.use(VueRouter)
@@ -35,6 +36,7 @@ const routing =
 
 		{path: 'organization', component: OrgIndex, name: "organizationIndex"},
 		{path: 'organization/create', component: OrganizationCreate, name: "organizationCreate"},
+		{path: '/branch', component: BranchIndex, name: "Branch"},
 
 
 

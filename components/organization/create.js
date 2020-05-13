@@ -9,15 +9,19 @@ const OrganizationCreate = {
 		
 		return {
 			organization: {
-				title : ''
+				title : '', created_by :  localStorage.getItem("idUser")
 			}
 		}
 	},
 
 	methods: {
 		submit(){
+			var self = this;
 			axios.post("http://127.0.0.1:8000/api/organization",this.organization).then(function (response) {
-				console.log(response);
+				if(response.data == "success"){
+					self.$router.push({name: "organizationIndex"});
+					iziToast.info({    title: 'Success',    message: 'Your data has been saved!', }); 
+				}
 			});
 		},
 
