@@ -35,11 +35,11 @@ const LibraryBooksListTemplate = `
 					              <div class="modal-header">
 					                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					                  <span aria-hidden="true">&times;</span></button>
-					                <h4 class="modal-title">Add Book</h4>
+					                <h4 class="modal-title"><b>Add Book</b></h4>
 					              </div>
 					              	<div class="modal-body">
 						                <div class="form-group">
-			                            <label class="required-field">Book's Name &nbsp</label>
+			                            <label class="required-field">Title &nbsp</label>
 			                            <input  class="form-control" placeholder="Please enter book's name" v-model="fromInput.name">
 	                        		</div>
 									<div class="form-group">
@@ -67,11 +67,11 @@ const LibraryBooksListTemplate = `
 					              <div class="modal-header">
 					                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					                  <span aria-hidden="true">&times;</span></button>
-					                <h4 class="modal-title">Edit {{clickedBook.lbNname}}</h4>
+					                <h4 class="modal-title"><b>Edit {{clickedBook.name}} Book </b></h4>
 					              </div>
 					              <div class="modal-body">
 					                <div class="form-group">
-			                            <label class="required-field">Book's Name &nbsp</label>
+			                            <label class="required-field">Title &nbsp</label>
 			                            <input  class="form-control" placeholder="Please enter book's name" v-model="clickedBook.name" >
 		                        	</div>
 
@@ -101,7 +101,7 @@ const LibraryBooksListTemplate = `
 					              <div class="modal-header">
 					                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					                  <span aria-hidden="true">&times;</span></button>
-					                <h4 class="modal-title">{{clickedBook.name}} will be deleted.</h4>
+					                <h4 class="modal-title"><b>{{clickedBook.name}} Book will be deleted.</b></h4>
 					              </div>
 					              <div class="modal-body">
 					                <p><b>Are you Sure??</b></p>
@@ -121,7 +121,7 @@ const LibraryBooksListTemplate = `
 	                    </div>
 	                    <!-- /.box-header -->
 
-	                    <div class="box-body">
+	                    <div class="box-body table-responsive no-padding">
 
 	                            <table id="example1" class="table table-bordered table-striped">
 

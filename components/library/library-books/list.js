@@ -1,5 +1,5 @@
-import  LibraryBooksListTemplate  from "../../../templates/library-templates/library-books-templates/list-template.js";
-import { base_url,sweetAlert,toasterInfo} from "../../../global.js";
+import  LibraryBooksListTemplate  from "../../../templates/library-templates/library-books-template/list-template.js";
+import { base_url,sweetAlert,toasterSuccess,toasterError} from "../../../global.js";
    
 
 const LibraryBooksList = {
@@ -20,8 +20,6 @@ const LibraryBooksList = {
 		console.log("mounted")
 		this.getAllBooks();
 		this.getAllBranches();
-		/*this.selectBook();
-		this.deleteBook();*/
 	},
 
 	methods: {
@@ -29,55 +27,36 @@ const LibraryBooksList = {
 			var vm = this;
 			axios.get(base_url+"api/libraryBooks/create")
     		.then(function (response) {
-    			 /*vm.branches = response.data.data;*/
     			 vm.branches = response.data.data;
-    			console.log(vm.branches);	
-
-    			// self.$router.push({name: "Dashboard"});
+    			// console.log(vm.branches);	
     		})
     		.catch(function (error) {
-    			console.log(error);
-    			console.log('error from library create');
-    			// self.$router.push({name: "Login"});
-
-
+    			console.log(error.response);
             });
 		},
 		getAllBooks(){
 			var vm = this;
 			axios.get(base_url+"api/libraryBooks")
     		.then(function (response) {
-    			 /*vm.branches = response.data.data;*/
     			 vm.books = response.data.data;
-    			console.log(vm.books);	
-
-    			// self.$router.push({name: "Dashboard"});
-    		})
-    		.catch(function (error) {
-    			console.log(error);
-    			console.log('error from library list');
-    			// self.$router.push({name: "Login"});
-
-
-            });
-    	},
-    	createBook(){
-			/*console.log(this.fromInput);*/
-			const created_by = localStorage.getItem("idUser")
-			this.fromInput.created_by = created_by;
-			/*console.log(this.fromInput);*/
-			var vm = this;
-			axios.post(base_url+"api/libraryBooks",vm.fromInput)
-    		.then(function (response) {
-    			 
-    			console.log(response);	
-    			vm.getAllBooks();
-
+    			// console.log(vm.books);	
     		})
     		.catch(function (error) {
     			console.log(error.response);
-    			console.log('error from library submit');
-    			sweetAlert('riwoerweriw','rewrwerwer')
+            });
+    	},
+    	createBook(){
+			const created_by = localStorage.getItem("idUser")
+			this.fromInput.created_by = created_by;
+			var vm = this;
+			axios.post(base_url+"api/libraryBooks",vm.fromInput)
+    		.then(function (response) {
+    			// console.log(response);	
+    			vm.getAllBooks();
+    			toasterSuccess(response.data.heading,response.data.message)
+    		})
+    		.catch(function (error) {
+    			console.log(error.response);
     // 			const wrapper = document.createElement('div');
 				// wrapper.innerHTML = error.response.data.message;
 
@@ -89,28 +68,28 @@ const LibraryBooksList = {
 				//   dangerMode: true,
 
 				// });
-				toasterInfo('tttt','gugugug')
+				toasterError(error.response.data.heading,error.response.data.message)
+				// sweetAlert(error.response.data.heading,error.response.data.message)
             });
 		},
     	selectBook(book){
 			this.clickedBook = book;
-			console.log(this.clickedBook);
-			console.log(this.editModal);
+			// console.log(this.clickedBook);
 		},
     	updateBook(){
 			this.clickedBook.updated_by = localStorage.getItem("idUser");
-			/*console.log(this.fromInput);*/
 			var id = this.clickedBook.id;
 			var vm = this;
 			axios.put(base_url+"api/libraryBooks/"+id,vm.clickedBook)
     		.then(function (response) {
-    			console.log(response);	
+    			// console.log(response);
+    			vm.getAllBooks();
+				toasterSuccess(response.data.heading,response.data.message)
     		})
     		.catch(function (error) {
-    			console.log(error);
-    			console.log('error from library update');
-    			// self.$router.push({name: "Login"});
-
+    			console.log(error.response);
+				toasterError(error.response.data.heading,error.response.data.message)
+				// sweetAlert(error.response.data.heading,error.response.data.message)
 
             });
 		},
@@ -119,21 +98,17 @@ const LibraryBooksList = {
 			var vm = this;
 			axios.delete(base_url+"api/libraryBooks/"+id)
     		.then(function (response) {
-    			console.log(response);
-    			vm.getAllBooks();	
+    			// console.log(response);
+    			vm.getAllBooks();
+    			toasterSuccess(response.data.heading,response.data.message)	
     		})
     		.catch(function (error) {
-    			console.log(error);
-    			console.log('error from library update');
-    			// self.$router.push({name: "Login"});
-
-
+    			console.log(error.response);
+    			toasterError(error.response.data.heading,error.response.data.message)
+				// sweetAlert(error.response.data.heading,error.response.data.message)
             });
 		}
     	
-		/*goToEdit(book){
-			this.$router.push({ name: "LibraryBooksEdit", params: book})
-		}*/
 	
 	},
 	
