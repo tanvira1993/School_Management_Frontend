@@ -1,59 +1,55 @@
 const DashboardTemplate = `
 <template>
-<div class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
 
-  <header class="main-header">
+<header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+    <a href="" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>S</b>MS</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>SchoolMng</b>System</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
+
     <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <img src="./assets/adminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                      <span class="hidden-xs">Alexander Pierce</span>
+                    </a>
+                  <ul class="dropdown-menu">
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="./assets/adminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="./assets/adminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <li class="user-header">
+                          <img src="./assets/adminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                          <p>
+                            Alexander Pierce - Web Developer
+                            <small>Member since Nov. 2012</small>
+                          </p>
+                        </li>
 
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat" @click="logout()">Sign out</a>
-                </div>
-              </li>
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            </div>
+                            <div class="pull-right">
+                              <a href="#" class="btn btn-default btn-flat" @click="logout()">Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
-          </li>
-          
-        </ul>
-      </div>
+        </div>
     </nav>
   </header>
+  
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -80,73 +76,151 @@ const DashboardTemplate = `
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+        <ul class="sidebar-menu" data-widget="tree">
+
+<!-- ====================menu space for ziadul starts===================== -->    
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ====================menu space for ziadul ends===================== -->  
+
+
+<!-- ===================menu space for hashmi starts==================== --> 
+
+          <!-- ===============Library menu starts================= -->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-share"></i> <span>Library</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><router-link to="/organization/libraryBooks/list"><i class="fa fa-circle-o"></i> Library Books List <router-link></li>
+                </ul>
+
+            </li>
+
+            <!-- =============Library menu ends=======================-->
+
+
+
+
+
+
+
+
+
+
+ <!-- ===================menu space for hashmi ends====================== -->    
+
+ <!-- ===================menu space for tanvir starts==================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- ===================menu space for tanvir ends==================== -->          
+
+            <!-- =============Demo menu for help============ -->
+
+            <!--<li class="treeview">
+              <a href="#">
+                <i class="fa fa-share"></i> <span>Multilevel</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-circle-o"></i> Level One
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                    <li class="treeview">
+                      <a href="#"><i class="fa fa-circle-o"></i> Level Two
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>-->
+
+            <!-- =============Demo menu for help============ -->
+
+          
+        </ul>
+
         
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span> Organizations</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><router-link to="/organization/create"></i> Create<router-link></li>
-            <li><router-link to="/organization"></i> List<router-link></li>
-          </ul>
-        </li>
-      </ul>
+
     </section>
     <!-- /.sidebar -->
   </aside>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        
-
+    
         <router-view></router-view>
         
-        
-      </div>
+    </div>
 
-    </section>
+        <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.4.13
+        </div>
+        <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+        reserved.
+      </footer>
+
+  <aside class="control-sidebar control-sidebar-dark" style="display: none;"></aside>
+
   </div>
 
-
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.13
-    </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-    reserved.
-  </footer>
-
-
-  
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
-<!-- ./wrapper -->
-
-
-</div>
 </template>
 `
 

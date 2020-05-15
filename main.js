@@ -27,16 +27,7 @@ new Vue({
     template: MainTemplate,
 
     mounted: async function(){ 
-    	iziToast.info({    title: 'Hello',    message: 'Welcome!', }); 	
-    	swal({
-    		content: {
-    			element: "input",
-    			attributes: {
-    				placeholder: "Type your password",
-    				type: "password",
-    			},
-    		},
-    	});
+    	
     	await this.validateLogin();
     	await this.headerConfig();
     	
@@ -85,13 +76,11 @@ new Vue({
     		})
     		.then(function (response) {
     			console.log(response);
-    			// self.$router.push({name: "Dashboard"});
     		})
     		.catch(function (error) {
-    			console.log(error);
+    			console.log(error.response);
     			console.log('error from main');
-    			// self.$router.push({name: "Login"});
-
+                this.$router.push({ name: "Login"})
 
             });
 

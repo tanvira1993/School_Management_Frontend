@@ -30,27 +30,58 @@
         <link rel="stylesheet" href="./assets/adminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="./assets/adminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <link rel="stylesheet" href="./assets/adminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/adminLTE/bower_components/select2/dist/css/select2.min.css">
 
         <!-- Styles for iziToast -->
         <link rel="stylesheet" href="./assets/toaster-sweetalert/iziToast.css">
         <link rel="stylesheet" href="./assets/curd_style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+        
 
 <!-- Google Font -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        
+        <style>
+        .required-field::after {
+            content: "*";
+            color: red;
+        }
+        .example-modal .modal {
+          position: relative;
+          top: auto;
+          bottom: auto;
+          right: auto;
+          left: auto;
+          display: block;
+          z-index: 1;
+        }
+
+        .example-modal .modal {
+          background: transparent !important;
+        }
+    </style>
 
 </head>
 
-<body>
+<body class="hold-transition skin-blue sidebar-mini">
+
+
+
+
+
 
     <div id="app"></div>
-    <script type="text/javascript" src="assets/jquery.min.js"></script>
+
+
+
+
+
+
+
+    <script src="./assets/adminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="assets/jquery.min.js"></script> -->
     <script type="text/javascript" src="assets/vue-router.js"></script>
     <script type="text/javascript" src="assets/axios.js"></script>
     <script type="module" src="main.js"></script>
@@ -64,9 +95,10 @@
 
     <!-- Script file for admin lte -->
 
-
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <!-- jQuery 3 -->
-    <script src="./assets/adminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+    
     <!-- jQuery UI 1.11.4 -->
     <script src="./assets/adminLTE/bower_components/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -75,6 +107,8 @@
     </script>
     <!-- Bootstrap 3.3.7 -->
     <script src="./assets/adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./assets/adminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="./assets/adminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!-- Morris.js charts -->
     <script src="./assets/adminLTE/bower_components/raphael/raphael.min.js"></script>
     <script src="./assets/adminLTE/bower_components/morris.js/morris.min.js"></script>
@@ -102,8 +136,21 @@
     <script src="./assets/adminLTE/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="./assets/adminLTE/dist/js/demo.js"></script>
+    <script src="./assets/adminLTE/bower_components/select2/dist/js/select2.full.min.js"></script>
 
-
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            })
+})
+    </script>
 
 </body>
 
