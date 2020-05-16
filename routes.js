@@ -26,12 +26,106 @@ import { InventoryIndex } from './components/inventory/inventory-index.js'
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*===========================include space for zaidul ends==========================*/
 
 /*===========================include space for hashmi starts==========================
 ======================================================================================*/
 
 import { LibraryBooksList } from './components/library/library-books/list.js'
+import { ShiftList } from './components/shift/list.js'
+import { DepartmentList } from './components/department/list.js'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46,6 +140,65 @@ import { LibraryBooksList } from './components/library/library-books/list.js'
 
 /*===========================include space for tanvir starts==========================
 ======================================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -123,11 +276,145 @@ const routing =
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================route space for ziadul ends==========================*/
 
 
 /*=============================route space for tanvir starts==========================
 ======================================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -148,6 +435,87 @@ const routing =
 
 		/*============================ Library===========================*/
 		{path: '/organization/libraryBooks/list', component: LibraryBooksList, name: "LibraryBooksList"},
+
+		/*============================ Shift ============================*/
+		{path: '/organization/shift/list', component: ShiftList, name: "ShiftList"},
+		/*============================ Shift ============================*/
+		{path: '/organization/department/list', component: DepartmentList, name: "DepartmentList"},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
