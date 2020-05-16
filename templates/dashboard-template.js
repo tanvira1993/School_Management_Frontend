@@ -78,7 +78,22 @@ const DashboardTemplate = `
       <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
 
-<!-- ====================menu space for ziadul starts===================== -->    
+<!-- ====================menu space for ziadul starts===================== -->   
+
+        <!-- =============Inventory Menu=============== -->   
+
+
+      <li class="treeview">
+
+        <a href="#">
+            <i class="fa fa-share"></i> <span>Inventory</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+            <li><router-link to="/inventory/materials"><i class="fa fa-circle-o"></i> Materials <router-link></li>
+        </ul>
+
+      </li>
+      
  
 
 

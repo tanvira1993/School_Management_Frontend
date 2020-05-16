@@ -10,6 +10,9 @@ import { BranchIndex } from './components/branch/branch-index.js'
 import { OrgIndex } from './components/organization/index.js'
 
 
+import { InventoryIndex } from './components/inventory/inventory-index.js'
+
+
 
 
 
@@ -248,6 +251,8 @@ const routing =
 		{path: 'organization', component: OrgIndex, name: "organizationIndex"},
 		{path: 'organization/create', component: OrganizationCreate, name: "organizationCreate"},
 		{path: '/branch', component: BranchIndex, name: "Branch"},
+
+		{path: '/inventory/materials', component: InventoryIndex, name: "InventoryIndex"},
 
 
 

@@ -57,6 +57,9 @@ const LibraryBooksList = {
     		})
     		.catch(function (error) {
     			console.log(error.response);
+    			console.log('error from library submit');
+    			sweetAlert('riwoerweriw','rewrwerwer');
+
     // 			const wrapper = document.createElement('div');
 				// wrapper.innerHTML = error.response.data.message;
 
