@@ -22,15 +22,15 @@ const DashboardTemplate = `
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <img src="./assets/adminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                      <span class="hidden-xs">Alexander Pierce</span>
+                      <span class="hidden-xs">{{user.name}}</span>
                     </a>
                   <ul class="dropdown-menu">
 
                         <li class="user-header">
                           <img src="./assets/adminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                           <p>
-                            Alexander Pierce - Web Developer
-                            <small>Member since Nov. 2012</small>
+                            {{user.name}} - Web Developer
+                            <small>Member since {{user.created_at}}</small>
                           </p>
                         </li>
 
@@ -60,7 +60,7 @@ const DashboardTemplate = `
           <img src="./assets/adminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{user.name}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -246,13 +246,24 @@ const DashboardTemplate = `
 
           <!-- ===============Library menu starts================= -->
             <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-book"></i> <span>Library</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                </a>
-                <ul class="treeview-menu">
+              <a href="#">
+                <i class="fa fa-university"></i> <span>Library</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-book"></i> Books
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
                     <li><router-link to="/organization/libraryBooks/list"><i class="fa fa-list-ol"></i> Library Books List <router-link></li>
-                </ul>
-
+                  </ul>
+                </li>
+              </ul>
             </li>
 
             <!-- =============Library menu ends=======================-->
