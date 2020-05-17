@@ -85,6 +85,22 @@ const DashboardTemplate = `
       <li class="treeview">
 
         <a href="#">
+            <i class="fa fa-share"></i> <span>Branch</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+            <li><router-link to="/branch"><i class="fa fa-circle-o"></i> Branches list <router-link></li>
+        </ul>
+    
+      </li>
+
+
+
+
+      <!-- =============Organization Menu=============== --> 
+
+      <li class="treeview">
+
+        <a href="#">
             <i class="fa fa-share"></i> <span>Organizations</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </a>
         <ul class="treeview-menu">
@@ -92,6 +108,9 @@ const DashboardTemplate = `
         </ul>
     
       </li>
+
+
+
 
         <!-- =============Inventory Menu=============== -->   
 

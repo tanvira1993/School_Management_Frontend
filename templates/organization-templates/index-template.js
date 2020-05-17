@@ -156,7 +156,7 @@ const OrgIndexTemp = `
 							<tr role="row" class="odd" v-for="(organization, i) in organizations" v-bind:key="i">
 								<td class="sorting_1">
 									<a data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-sm alert-warning fa fa-pencil" @click="editModal = true; clickedOrganization = organization"></a>
-									<a data-toggle="modal" data-target="#modal-danger"  class="btn btn-sm btn-danger fa fa-trash" @click="deleteModal = true; clickedOrganization = organization""></a>
+									<a data-toggle="modal" data-target="#modal-danger"  class="btn btn-sm btn-danger fa fa-trash" @click="deleteModal = true; clickedOrganization = organization"></a>
 								</td>
 								<td>{{i+1}}</td>
 								<td>{{organization.name}}</td>

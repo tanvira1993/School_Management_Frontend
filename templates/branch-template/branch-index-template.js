@@ -1,127 +1,197 @@
 const BranchIndexTemplate = `
 <div>
 
-    <div v-if="showCreateForm">
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-6">
-            <div class="box box-primary">
+<div>
+	<section class="content-header">
+	    		<h1>
+	            Branches List
+	        </h1>
+	        <ol class="breadcrumb">
+	            <li><router-link to="/"><i class="fa fa-dashboard"></i> Dashboard<router-link></li>
+	            <li class="active"><a href="">Branches List</a></li>
+	        </ol>
+    </section>
 
-                <div class="box-header with-border">
-                    <h3 class="box-title">Organization</h3>
-                </div>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
 
-                <div>
+                    <div style="text-align: center;"><a data-toggle="modal" data-target="#modal-default-create" class="btn btn-primary btn-sm alert-success fa fa-plus" @click="createModal= true;">&nbsp Add Branch</a> </div>
 
-                    <div class="box-body">
 
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title" v-model="branch.title">
-                        </div>
 
-                        <div class="form-group">
-                            <label for="title">Organization Id</label>
-                            <select id="title" class="form-control" v-model="branch.organization_id">
-                                <option v-for="(organization,i) in organization" :key="i" :value="organization.id">{{organization.title}}</option>
-                            </select>
-                        </div>
 
+
+                    <!-- createModal-content-start -->
+
+                    <div class="modal fade" id="modal-default-create" v-if="createModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                        
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title"><b>Add Branch</b></h4>
+                                </div>
+                            
+                                <div class="modal-body">
+                                
+                                    <div class="form-group">
+                                        <label class="required-field">Title &nbsp</label>
+                                        <input  class="form-control" placeholder="Please enter branch's name" v-model="newBranch.name">
+                                    </div>
+
+                                    <div>
+                                        <label class="required-field">Branch &nbsp</label>
+                                        <select class="form-control" v-model="newBranch.organization_id">
+                                            <option disabled selected >Select Branch</option>
+                                            <option v-for="organization in organizations" v-bind:value="organization.id">{{ organization.name }}</option>
+                                        </select>
+                                    </div>
+                                
+                                </div>
+                            
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" @click="createModal= false">Close</button>
+                                    <button type="button" class="btn btn-primary" @click="submitBranch() ; createModal= false;" data-dismiss="modal">Submit</button>
+                                </div>
+                            
+                            </div>
+                        </div>				          
+                    </div>
+                                
+                    <!-- /.createModal-content-end -->
+
+
+
+
+
+                    <!-- editModal-content-start -->
+
+                    <div class="modal fade" id="modal-default" v-if="editModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title"><b>Edit Branch</b></h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="required-field">Title &nbsp</label>
+                                        <input  class="form-control" placeholder="Please enter book's name" v-model="clickedBranch.name">
+                                    </div>
+
+                                    <div>
+                                        <label class="required-field">Branch &nbsp</label>
+                                        <select class="form-control" v-model="clickedBranch.organization_id">
+                                            <option disabled selected >Select Branch</option>
+                                            <option v-for="organization in organizations" v-bind:value="organization.id">{{ organization.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" @click= "editModal = false">Close</button>
+                                    <button type="button" class="btn btn-primary" @click="updateBranch(); editModal= false;" data-dismiss="modal">Update</button>
+                                </div>
+                            </div>
+                        </div>				          
                     </div>
 
-                    <div class="box-footer">
-                        <button class="btn btn-primary" @click.prevent="submit(); showCreateForm=false">Submit</button>
+                    <!-- /.editModal-content-end -->
+
+
+                    <!-- deleteModal-content-start -->
+
+                    <div class="modal modal-danger fade" id="modal-danger" v-if="deleteModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title"><b>Branch will be deleted.</b></h4>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <p><b>Are you Sure??</b></p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal" @click="deleteModal = false">Close</button>
+                                <button type="button" class="btn btn-outline" data-dismiss="modal" @click="deleteBranch()">Yes! Delete!</button>
+                                </div>
+                            </div>
+                                    
+                        </div>
+                                
                     </div>
 
-                </div>
+                    <!-- /.deleteModal-content-end -->
+                    
+
+
+
+
+
+                    <!-- /.data table -->
+
+                    <div class="box-body table-responsive no-padding">
+
+                        <div class="col-xs-12">
+            
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">Branches table</h3>
+                                </div>
+
+                                <div class="box-body">
+                                <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 225px;">SL NO</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 282px;">Action</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 260px;">Title</th>
+                                            
+                                        </tr>
+
+                                    </thead>
+                                    
+                                    <tbody>
+                                        
+                    
+                                        <tr role="row" class="odd" v-for="(branch, index) in branches" v-bind:key="index">
+                                            <td>{{index+1}}</td>
+                                            <td class="sorting_1">
+                                                <a data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-sm alert-warning fa fa-pencil" @click="editModal = true; clickedBranch = branch"></a>
+                                                <a data-toggle="modal" data-target="#modal-danger"  class="btn btn-sm btn-danger fa fa-trash" @click="deleteModal = true; clickedBranch = branch"></a>
+                                            </td>
+                                            <td>{{branch.name}}</td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table></div></div></div>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                        <!-- /.box -->
+                    </div>
+	              </div>
                 
+                
+                
+                </div>
             </div>
-
         </div>
-
-        
-    </div>
-
-
-
-
-    <div v-if="showEditForm">
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-6">
-            <div class="box box-primary">
-
-                <div class="box-header with-border">
-                    <h3 class="box-title">Organization</h3>
-                </div>
-
-                <div>
-
-                    <div class="box-body">
-
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title" v-model="clickedBranch.title">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="title">Organization Id</label>
-                            <select id="title" class="form-control" v-model="clickedBranch.organization_id">
-                                <option v-for="(organization,i) in organization" :key="i" :value="organization.id">{{organization.title}}</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="box-footer">
-                        <button class="btn btn-primary" @click.prevent="update(clickedBranch.id); showEditForm = false">Submit</button>
-                    </div>
-
-                </div>
-                
-            </div>
-
-        </div>
-
-        
-    </div>
-
-
-
-
-
-
-    <div class="container">
-        
-        <h1 class="fleft col">List of Branches</h1>
-
-        <button class="fright addNew btn btn-primary" @click.prevent="showCreateForm = true">Add New</button>
-
-        <div class="clear"></div>
-        <hr>
-        
-        <table class="list">
-            <tr>
-                <th>SL</th>
-                <th>Action</th>
-                <th>Title</th>
-                
-            </tr>
-
-            <tr v-for="(branch, i) in branches" :key="i">
-                <td>{{i+1}}</td>
-                <td>
-                    <button class="btn btn-danger fa fa-trash" @click.prevent="deleteBranch(branch.id)"></button>
-                    <button class="btn btn-primary fa fa-edit" @click.prevent="showEditForm = true; clickedBranch = branch"></button>
-                </td>
-                <td>{{branch.title}}</td>
-			</tr>
-
-        </table>
-    </div>
-
     
-			
+    </section>      
+
+
+
+</div>
 
 </div>
 `
