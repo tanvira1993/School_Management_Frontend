@@ -1,4 +1,4 @@
-import  DepartmentListTemplate  from "../../templates/department-template/list-template.js";
+import  DepartmentListTemplate  from "../../templates/department-templates/list-template.js";
 import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning} from "../../global.js";
   
 
@@ -7,10 +7,8 @@ const DepartmentList = {
 
 	data() {
 		return {
-			createModal: false,
 			editModal: false,
 			deleteModal: false,
-			fromInput:{name: '', branches_id: '',shifts_id: ''},
 			branches: {},
 		    shifts: {},
 		    departments: {},
@@ -24,6 +22,9 @@ const DepartmentList = {
 	},
 
 	methods: {
+		createPage(){
+			this.$router.push({ name: "DepartmentCreate"});
+		},
 		getAllBranchesAndShifts(){
 			var vm = this;
 			axios.get(base_url+"api/departments/create")
@@ -45,7 +46,7 @@ const DepartmentList = {
     			console.log(error.response);
             });
     	},
-    	createDepartment(){
+    	/*createDepartment(){
 			var vm = this;
 			axios.post(base_url+"api/departments",vm.fromInput)
     		.then(function (response) {
@@ -59,7 +60,7 @@ const DepartmentList = {
 				toasterError(error.response.data.heading,error.response.data.message)
 				// sweetAlert(error.response.data.heading,error.response.data.message)
             });
-		},
+		},*/
     	selectDepartment(department){
 			this.clickedDepartment = department;
 			// console.log(this.clickedDepartment);

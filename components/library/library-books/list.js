@@ -1,4 +1,4 @@
-import  LibraryBooksListTemplate  from "../../../templates/library-templates/library-books-template/list-template.js";
+import  LibraryBooksListTemplate  from "../../../templates/library-templates/library-books-templates/list-template.js";
 import { base_url,sweetAlert,toasterSuccess,toasterError} from "../../../global.js";
    
 
@@ -23,6 +23,9 @@ const LibraryBooksList = {
 	},
 
 	methods: {
+		createPage(){
+			this.$router.push({ name: "LibraryBooksCreate"});
+		},
 		getAllBranches(){
 			var vm = this;
 			axios.get(base_url+"api/libraryBooks/create")
@@ -59,7 +62,6 @@ const LibraryBooksList = {
     			console.log(error.response);
     			console.log('error from library submit');
     			sweetAlert('riwoerweriw','rewrwerwer');
-
     // 			const wrapper = document.createElement('div');
 				// wrapper.innerHTML = error.response.data.message;
 
@@ -120,4 +122,3 @@ const LibraryBooksList = {
 
 
 export { LibraryBooksList }
-

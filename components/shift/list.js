@@ -1,4 +1,4 @@
-import  ShiftListTemplate  from "../../templates/shift-template/list-template.js";
+import  ShiftListTemplate  from "../../templates/shift-templates/list-template.js";
 import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning} from "../../global.js";
   
 
@@ -7,7 +7,6 @@ const ShiftList = {
 
 	data() {
 		return {
-			createModal: false,
 			editModal: false,
 			deleteModal: false,
 			fromInput:{name: '', branches_id: ''},
@@ -24,6 +23,9 @@ const ShiftList = {
 	},
 
 	methods: {
+		createPage(){
+			this.$router.push({ name: "ShiftCreate"});
+		},
 		getAllBranches(){
 			var vm = this;
 			axios.get(base_url+"api/shifts/create")
@@ -45,21 +47,6 @@ const ShiftList = {
     			console.log(error.response);
             });
     	},
-    	createShift(){
-			var vm = this;
-			axios.post(base_url+"api/shifts",vm.fromInput)
-    		.then(function (response) {
-    			// console.log(response);	
-    			vm.getAllShifts();
-    			toasterSuccess(response.data.heading,response.data.message)
-
-    		})
-    		.catch(function (error) {
-    			// console.log(error.response.data.heading);
-				toasterError(error.response.data.heading,error.response.data.message)
-				// sweetAlert(error.response.data.heading,error.response.data.message)
-            });
-		},
     	selectShift(shift){
 			this.clickedShift = shift;
 			console.log(this.clickedShift);
