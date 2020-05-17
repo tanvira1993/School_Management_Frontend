@@ -35,28 +35,93 @@ const InventoryInedxTemplate = `
                                     </div>
 
 					              	<div class="modal-body">
-						                <div class="form-group">
-			                            <label class="required-field">Material's Name &nbsp</label>
-			                            <input  class="form-control" placeholder="Please enter material's name" v-model="material.name">
-                                    </div>
-                                    
-                                    <div class="form-group">
-		                            <label class="required-field">Type &nbsp</label>
-			                            <select class="form-control" v-model="material.type">
-			                            	<option disabled> Select Material Type </option>
-                                            <option value="S"> Scrapable </option>
-                                            <option> Consumable </option>
-			                            </select>
-		                    		</div>
+										<div class="form-group">
+											<label class="required-field">Material's Name &nbsp</label>
+											<input  class="form-control" placeholder="Please enter material's name" v-model="material.name">
+										</div>
+										
+										<div class="form-group">
+										<label class="required-field">Type &nbsp</label>
+											<select class="form-control" v-model="material.type">
+												<option disabled> Select Material Type </option>
+												<option value="S"> Scrapable </option>
+												<option> Consumable </option>
+											</select>
+										</div>
+										
+									</div>
+
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary" @click="createModal= false;" data-dismiss="modal">Submit</button>
+									</div>
 									
 					            </div>
-					            <div class="modal-footer">
-					                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-					                <button type="button" class="btn btn-primary" @click="createModal= false;" data-dismiss="modal">Submit</button>
-					            </div>
+					            
 					        </div>
 					    </div>				          
-		                <!-- /.createModal-content-end -->
+						<!-- /.createModal-content-end -->
+						
+
+						<!-- editModal-content-start -->
+
+		                <div class="modal fade" id="modal-default" v-if="editModal">
+					        <div class="modal-dialog">
+					            <div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title"><b>Edit Book </b></h4>
+									</div>
+
+									<div class="modal-body">
+										<div class="form-group">
+											<label class="required-field">Title &nbsp</label>
+											<input  class="form-control" placeholder="Please enter book's name">
+										</div>
+
+									</div>
+
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary" @click="editModal= false;" data-dismiss="modal">Update</button>
+									</div>
+								  
+					            </div>
+					        </div>				          
+					    </div>
+
+						<!-- /.editModal-content-end -->
+
+
+						<!-- deleteModal-content-start -->
+
+						<div class="modal modal-danger fade" id="modal-danger" v-if="deleteModal">
+						
+					        <div class="modal-dialog">
+					          	<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title"><b>Book will be deleted.</b></h4>
+									</div>
+
+									<div class="modal-body">
+										<p><b>Are you Sure??</b></p>
+									</div>
+
+									<div class="modal-footer">
+										<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-outline" data-dismiss="modal" @click="deleteBook()">Yes! Delete!</button>
+									</div>
+					          	</div>
+
+					        </div>
+
+					    </div>
+
+						<!-- /.deleteModal-content-end -->
+
                         
                     </div>
 
