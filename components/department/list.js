@@ -21,7 +21,6 @@ const DepartmentList = {
 		console.log("mounted")
 		this.getAllDepartments();
 		this.getAllBranchesAndShifts();
-		this.selectDepartment();
 	},
 
 	methods: {
@@ -63,7 +62,7 @@ const DepartmentList = {
 		},
     	selectDepartment(department){
 			this.clickedDepartment = department;
-			console.log(this.clickedDepartment);
+			// console.log(this.clickedDepartment);
 		},
     	updateDepartment(){
 			var id = this.clickedDepartment.id;
