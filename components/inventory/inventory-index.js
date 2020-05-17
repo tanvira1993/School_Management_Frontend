@@ -8,7 +8,7 @@ const InventoryIndex = {
 	data() {
 		return {
 			material: {name: '', type: '', description: ''},
-			createModal: false,
+			createModal: false, editModal: false, deleteModal: false,
 		}
 	},
 	
