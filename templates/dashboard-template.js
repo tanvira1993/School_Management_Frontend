@@ -272,7 +272,7 @@ const DashboardTemplate = `
                     <i class="fa fa-star-half-o"></i> <span>Shift</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><router-link to="/organization/shift/list"><i class="fa fa-list-ol"></i> Shifts List <router-link></li>
+                    <li><router-link to="/organization/shift/list"><i class="fa fa-list-ol"></i> Shift's List <router-link></li>
                 </ul>
 
             </li>
@@ -284,7 +284,7 @@ const DashboardTemplate = `
                     <i class="fa fa-puzzle-piece"></i> <span>Department</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><router-link to="/organization/department/list"><i class="fa fa-list-ol"></i> Departments List <router-link></li>
+                    <li><router-link to="/organization/department/list"><i class="fa fa-list-ol"></i> Department's List <router-link></li>
                 </ul>
 
             </li>
@@ -307,7 +307,7 @@ const DashboardTemplate = `
                     </span>
                   </a>
                   <ul class="treeview-menu">
-                    <li><router-link to="/organization/libraryBooks/list"><i class="fa fa-list-ol"></i> Library Books List <router-link></li>
+                    <li><router-link to="/organization/libraryBooks/list"><i class="fa fa-list-ol"></i>Book's List <router-link></li>
                   </ul>
                 </li>
               </ul>
@@ -728,7 +728,93 @@ const DashboardTemplate = `
 
 
 
- <!-- ===================menu space for tanvir ends==================== -->          
+ <!-- ===================menu space for tanvir ends==================== --> 
+
+ <!-- ====================menu space for Siam starts===================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ===================menu space for Siam ends==================== -->            
 
             <!-- =============Demo menu for help============ -->
 

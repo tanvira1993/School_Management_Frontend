@@ -61,9 +61,11 @@ import { InventoryIndex } from './components/inventory/inventory-index.js'
 
 /*===========================include space for hashmi starts==========================
 ======================================================================================*/
-
+import { LibraryBooksCreate } from './components/library/library-books/create.js'
 import { LibraryBooksList } from './components/library/library-books/list.js'
+import { ShiftCreate } from './components/shift/create.js'
 import { ShiftList } from './components/shift/list.js'
+import { DepartmentCreate } from './components/department/create.js'
 import { DepartmentList } from './components/department/list.js'
 
 
@@ -176,6 +178,50 @@ import { DepartmentList } from './components/department/list.js'
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*===========================include space for tanvir ends==========================*/
+
+/*===========================include space for siam starts==========================
+======================================================================================*/
 
 
 
@@ -434,12 +480,15 @@ const routing =
 ======================================================================================*/
 
 		/*============================ Library===========================*/
+		{path: '/organization/libraryBooks/create', component: LibraryBooksCreate, name: "LibraryBooksCreate"},
 		{path: '/organization/libraryBooks/list', component: LibraryBooksList, name: "LibraryBooksList"},
-
+		
 		/*============================ Shift ============================*/
+		{path: '/organization/shift/create', component: ShiftCreate, name: "ShiftCreate"},
 		{path: '/organization/shift/list', component: ShiftList, name: "ShiftList"},
-		/*============================ Shift ============================*/
+		/*============================ Department ============================*/
 		{path: '/organization/department/list', component: DepartmentList, name: "DepartmentList"},
+		{path: '/organization/department/create', component: DepartmentCreate, name: "DepartmentCreate"},
 
 
 
@@ -462,6 +511,79 @@ const routing =
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=============================route space for hashmi ends==========================*/
+
+
+/*=============================route space for siam starts==========================
+======================================================================================*/
 
 
 

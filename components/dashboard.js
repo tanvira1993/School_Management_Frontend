@@ -17,12 +17,12 @@ const Dashboard = {
     userInfo(){
       var id = localStorage.getItem("idUser");
       this.input.id = localStorage.getItem("idUser");
-      console.log(this.input);
+      // console.log(this.input);
       var vm = this;
       axios.get(base_url+"api/singleUser/"+id, vm.input)
         .then(function (response) {
            vm.user = response.data.data;
-           console.log(vm.user);
+           // console.log(vm.user);
         })
         .catch(function (error) {
           console.log(error.response);
