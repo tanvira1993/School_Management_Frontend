@@ -78,23 +78,7 @@ const DashboardTemplate = `
       <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
 
-<!-- ====================menu space for ziadul starts===================== --> 
-
-            <!-- =============Organization Menu=============== --> 
-
-      <li class="treeview">
-
-        <a href="#">
-            <i class="fa fa-share"></i> <span>Branch</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-        </a>
-        <ul class="treeview-menu">
-            <li><router-link to="/branch"><i class="fa fa-circle-o"></i> Branches list <router-link></li>
-        </ul>
-    
-      </li>
-
-
-
+<!-- ====================menu space for ziadul starts===================== -->
 
       <!-- =============Organization Menu=============== --> 
 
@@ -108,6 +92,21 @@ const DashboardTemplate = `
         </ul>
     
       </li>
+
+
+            <!-- =============Branches Menu=============== --> 
+
+      <li class="treeview">
+
+        <a href="#">
+            <i class="fa fa-share"></i> <span>Branch</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+            <li><router-link to="/branch"><i class="fa fa-circle-o"></i> Branches list <router-link></li>
+        </ul>
+    
+      </li>
+
 
 
 
