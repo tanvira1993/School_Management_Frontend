@@ -43,7 +43,7 @@ const BranchIndexTemplate = `
                                         <input  class="form-control" placeholder="Please enter branch's name" v-model="newBranch.name">
                                     </div>
 
-                                    <div>
+                                    <div class="form-group">
                                         <label class="required-field">Branch &nbsp</label>
                                         <select class="form-control" v-model="newBranch.organization_id">
                                             <option disabled selected >Select Branch</option>
