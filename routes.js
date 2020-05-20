@@ -11,6 +11,7 @@ import { OrgIndex } from './components/organization/index.js'
 
 
 import { InventoryMaterial } from './components/inventory/inventory-material.js'
+import { InventoryLocation } from './components/inventory/inventory-location.js'
 
 
 
@@ -299,6 +300,7 @@ const routing =
 		{path: '/branch', component: BranchIndex, name: "Branch"},
 
 		{path: '/inventory/materials', component: InventoryMaterial, name: "InventoryMaterial"},
+		{path: '/inventory/location', component: InventoryLocation, name: "InventoryMaterial"},
 
 
 

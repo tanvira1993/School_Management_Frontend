@@ -121,6 +121,7 @@ const DashboardTemplate = `
         </a>
         <ul class="treeview-menu">
             <li><router-link to="/inventory/materials"><i class="fa fa-circle-o"></i> Materials <router-link></li>
+            <li><router-link to="/inventory/location"><i class="fa fa-circle-o"></i> Inventory Location <router-link></li>
         </ul>
 
       </li>
