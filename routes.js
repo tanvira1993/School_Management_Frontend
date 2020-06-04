@@ -12,6 +12,11 @@ import { OrgIndex } from './components/organization/index.js'
 
 import { InventoryMaterial } from './components/inventory/inventory-material.js'
 import { InventoryLocation } from './components/inventory/inventory-location.js'
+import { InventoryMaterialReceive } from './components/inventory/inventory-material-receive.js' 
+import { MaterialTransfer } from './components/inventory/material-transfer.js'   
+import { MaterialConsume } from './components/inventory/material-consume.js'
+import { MaterialRefund } from './components/inventory/material-refund.js'
+import { MaterialScrap } from './components/inventory/material-scrap.js'
 
 
 
@@ -300,7 +305,13 @@ const routing =
 		{path: '/branch', component: BranchIndex, name: "Branch"},
 
 		{path: '/inventory/materials', component: InventoryMaterial, name: "InventoryMaterial"},
-		{path: '/inventory/location', component: InventoryLocation, name: "InventoryMaterial"},
+		{path: '/inventory/location', component: InventoryLocation, name: "InventoryLoc"},
+		{path: '/inventory/materials/receive', component: InventoryMaterialReceive, name: "InventoryMaterialReceive"},
+		{path: '/inventory/materials/transfer', component: MaterialTransfer, name: "MaterialTransfer"},
+		{path: '/inventory/materials/consume', component: MaterialConsume, name: "MaterialConsume"},
+		{path: '/inventory/materials/refund', component: MaterialRefund, name: "MaterialRefund"},
+		{path: '/inventory/materials/scrap', component: MaterialScrap, name: "MaterialScrap"},
+		
 
 
 
