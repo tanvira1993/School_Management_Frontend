@@ -78,14 +78,14 @@ const DashboardTemplate = `
       <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
 
-<!-- ====================menu space for ziadul starts===================== --> 
+<!-- ====================menu space for ziadul starts===================== -->
 
-            <!-- =============Organization Menu=============== --> 
+      <!-- =============Organization Menu=============== --> 
 
       <li class="treeview">
 
         <a href="#">
-            <i class="fa fa-share"></i> <span>Organizations</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+            <i class="fa fa-industry"></i> <span>Organizations</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </a>
         <ul class="treeview-menu">
             <li><router-link to="/organization"><i class="fa fa-circle-o"></i> Organizations list <router-link></li>
@@ -93,16 +93,40 @@ const DashboardTemplate = `
     
       </li>
 
+
+            <!-- =============Branches Menu=============== --> 
+
+      <li class="treeview">
+
+        <a href="#">
+            <i class="fa fa-bars"></i> <span>Branch</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+            <li><router-link to="/branch"><i class="fa fa-circle-o"></i> Branches list <router-link></li>
+        </ul>
+    
+      </li>
+
+
+
+
+
         <!-- =============Inventory Menu=============== -->   
 
 
       <li class="treeview">
 
         <a href="#">
-            <i class="fa fa-share"></i> <span>Inventory</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+            <i class="fa fa-bullseye"></i> <span>Inventory</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </a>
         <ul class="treeview-menu">
             <li><router-link to="/inventory/materials"><i class="fa fa-circle-o"></i> Materials <router-link></li>
+            <li><router-link to="/inventory/location"><i class="fa fa-circle-o"></i> Inventory Location <router-link></li>
+            <li><router-link to="/inventory/materials/receive"><i class="fa fa-circle-o"></i> Material Receive <router-link></li>
+            <li><router-link to="/inventory/materials/transfer"><i class="fa fa-circle-o"></i> Material Transfer <router-link></li>
+            <li><router-link to="/inventory/materials/consume"><i class="fa fa-circle-o"></i> Material Consume <router-link></li>
+            <li><router-link to="/inventory/materials/refund"><i class="fa fa-circle-o"></i> Material Refund <router-link></li>
+            <li><router-link to="/inventory/materials/scrap"><i class="fa fa-circle-o"></i> Material Scrap <router-link></li>
         </ul>
 
       </li>
