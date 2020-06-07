@@ -13,9 +13,9 @@ const LibraryBooksListTemplate = `
 	    <section class="content">
 	        <div class="row">
 	            <div class="col-xs-12">
-	                <div class="box">
+	                <div class="box" style="border-top-color: #605ca8 !important">
 	                    <div class="box-header">
-	                    	<div style="float: right;"><a class="btn btn-info btn-sm fa fa-plus" @click="createPage()""><b>&nbsp Add Books</b></a> </div>
+	                    	<div style="float: right;"><a class="btn btn-info btn-sm fa fa-plus" style="background-color: #605ca8 !important" @click="createPage()""><b>&nbsp Add Books</b></a> </div>
 	                       
 							<!-- editModal-content-start -->
 		                    <div class="modal fade" id="modal-default" v-if="editModal">
@@ -41,7 +41,7 @@ const LibraryBooksListTemplate = `
 					              </div>
 					              <div class="modal-footer">
 					                <button type="button" class="btn btn-sm btn-default pull-left" data-dismiss="modal">Close</button>
-					                <button type="button" class="btn btn-sm btn-primary" @click="updateBook(); editModal= false;" data-dismiss="modal">Update</button>
+					                <button type="button" class="btn btn-sm btn-primary" style="background-color: #605ca8 !important" @click="updateBook(); editModal= false;" data-dismiss="modal">Update</button>
 					              </div>
 					            </div>
 					          </div>				          
@@ -87,7 +87,7 @@ const LibraryBooksListTemplate = `
 		                                        <td>{{book.name}}</td>
 		                                        <td>{{book.bName}}</td>
 		                                        <td nowarp>
-		                                        	<span class="badge bg-purple"><div data-toggle="modal" data-target="#modal-default" class="fa fa-pencil"  @click="editModal = true; selectBook(book)" ></div></span>
+		                                        	<span class="badge bg-purple"><div data-toggle="modal" data-target="#modal-default" class="fa fa-edit"  @click="editModal = true; selectBook(book)" ></div></span>
 		                                    		<span class="badge bg-red"><div data-toggle="modal" data-target="#modal-danger"  class="fa fa-trash" @click="deleteModal= true; selectBook(book)"></div></span>
 		                                        </td>
 	                                    	</tr>

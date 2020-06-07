@@ -1,37 +1,34 @@
-import  LibraryBooksListTemplate  from "../../../templates/library-templates/library-books-templates/list-template.js";
+import  LibraryCategoriesListTemplate  from "../../../templates/library-templates/library-categories-templates/list-template.js";
 import { base_url,sweetAlert,toasterSuccess,toasterError,headerConfig} from "../../../global.js";
    
 
-const LibraryBooksList = {
-	template: LibraryBooksListTemplate,
+const LibraryCategoriesList = {
+	template: LibraryCategoriesListTemplate,
 
 	data() {
 		return {
 			editModal: false,
 			deleteModal: false,
 			branches: {},
-		    books: {},
-		    clickedBook:{}
+		    categories: {},
+		    clickedCategory:{}
 		  }   
 	},
-	/*created(){
-		setTimeout(() => $('#example1').DataTable(), 2000);
-	},*/
 	
 	mounted(){
 		console.log("mounted")
 		setTimeout(() => $('#example1').DataTable(), 2000);
-		this.getAllBooks();
+		this.getAllCategories();
 		this.getAllBranches();
 	},
 
 	methods: {
 		createPage(){
-			this.$router.push({ name: "LibraryBooksCreate"});
+			this.$router.push({ name: "LibraryCategoriesCreate"});
 		},
 		getAllBranches(){
 			var vm = this;
-			axios.get(base_url+"api/libraryBooks/create",headerConfig())
+			axios.get(base_url+"api/libraryBookCategories/create",headerConfig())
     		.then(function (response) {
     			 vm.branches = response.data.data;
     			// console.log(vm.branches);	
@@ -40,50 +37,50 @@ const LibraryBooksList = {
     			console.log(error.response);
             });
 		},
-		getAllBooks(){
+		getAllCategories(){
 			var vm = this;
-			axios.get(base_url+"api/libraryBooks",headerConfig())
+			axios.get(base_url+"api/libraryBookCategories",headerConfig())
     		.then(function (response) {
-    			 vm.books = response.data.data;
+    			 vm.categories = response.data.data;
     			 setTimeout(() => $('#example1').DataTable(), 2000);
-    			console.log(vm.books);	
     		})
     		.catch(function (error) {
     			console.log(error.response);
             });
     	},
-    	selectBook(book){
-			this.clickedBook = book;
+    	selectCategory(category){
+			this.clickedCategory = category;
 			// console.log(this.clickedBook);
 		},
-    	updateBook(){
-			var id = this.clickedBook.id;
+    	updateCategory(){
+			var id = this.clickedCategory.id;
 			var vm = this;
-			axios.put(base_url+"api/libraryBooks/"+id,vm.clickedBook,headerConfig())
+			axios.put(base_url+"api/libraryBookCategories/"+id,vm.clickedCategory,headerConfig())
     		.then(function (response) {
     			// console.log(response);
-    			vm.getAllBooks();
+    			vm.getAllCategories();
 				toasterSuccess(response.data.heading,response.data.message)
     		})
     		.catch(function (error) {
     			console.log(error.response);
-    			vm.getAllBooks();
+    			vm.getAllCategories();
 				toasterError(error.response.data.heading,error.response.data.message)
 				// sweetAlert(error.response.data.heading,error.response.data.message)
 
             });
 		},
-		deleteBook(){
-			var id = this.clickedBook.id;
+		deleteCategory(){
+			var id = this.clickedCategory.id;
 			var vm = this;
-			axios.delete(base_url+"api/libraryBooks/"+id,headerConfig())
+			axios.delete(base_url+"api/libraryBookCategories/"+id,headerConfig())
     		.then(function (response) {
     			// console.log(response);
-    			vm.getAllBooks();
+    			vm.getAllCategories();
     			toasterSuccess(response.data.heading,response.data.message)	
     		})
     		.catch(function (error) {
     			console.log(error.response);
+    			vm.getAllCategories();
     			toasterError(error.response.data.heading,error.response.data.message)
 				// sweetAlert(error.response.data.heading,error.response.data.message)
             });
@@ -96,4 +93,4 @@ const LibraryBooksList = {
 }
 
 
-export { LibraryBooksList }
+export { LibraryCategoriesList }

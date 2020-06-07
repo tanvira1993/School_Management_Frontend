@@ -14,9 +14,9 @@ const DepartmentListTemplate = `
 	<section class="content">
 	        <div class="row">
 	            <div class="col-xs-12">
-	                <div class="box">
+	                <div class="box" style="border-top-color: #605ca8 !important">
 	                    <div class="box-header">
-	                    <div style="float: right;"><a class="btn btn-info btn-sm fa fa-plus" @click="createPage()"><b>&nbsp Add Departments</b></a> </div>
+	                    <div style="float: right;"><a class="btn btn-info btn-sm fa fa-plus" style="background-color: #605ca8 !important" @click="createPage()"><b>&nbsp Add Departments</b></a> </div>
 		                	
 		                	<!-- editModal-content-start -->
 
@@ -36,7 +36,7 @@ const DepartmentListTemplate = `
 
 			                        <div class="form-group">
 		                            <label class="required-field">Branch &nbsp</label>
-			                            <select class="form-control" v-model="clickedDepartment.branches_id">
+			                            <select class="form-control" v-model="clickedDepartment.branches_id" @change="findShift()">
 			                            	<option disabled>Select Branch</option>
 			                                <option v-for="branch in branches" v-bind:value="branch.id">{{ branch.name }}</option>
 			                            </select>
@@ -53,7 +53,7 @@ const DepartmentListTemplate = `
 					              </div>
 					              <div class="modal-footer">
 					                <button type="button" class="btn btn-sm btn-default pull-left" data-dismiss="modal">Close</button>
-					                <button type="button" class="btn btn-sm btn-primary" @click="updateDepartment(); editModal= false;" data-dismiss="modal">Update</button>
+					                <button type="button" class="btn btn-sm btn-primary" style="background-color: #605ca8 !important" @click="updateDepartment(); editModal= false;" data-dismiss="modal">Update</button>
 					              </div>
 					            </div>
 					          </div>				          
@@ -110,13 +110,9 @@ const DepartmentListTemplate = `
 		                                        <td>{{department.bName}}</td>
 		                                        <td>{{department.sName}}</td>
 		                                        <td nowarp>
-		                                        	<span class="badge bg-purple"><div data-toggle="modal" data-target="#modal-default" class=" fa fa-pencil"  @click="editModal = true; selectDepartment(department)" ></div></span>
+		                                        	<span class="badge bg-purple"><div data-toggle="modal" data-target="#modal-default" class=" fa fa-edit"  @click="editModal = true; selectDepartment(department)" ></div></span>
 		                                    		<span class="badge bg-red"><div data-toggle="modal" data-target="#modal-danger"  class=" fa fa-trash" @click="deleteModal= true; selectDepartment(department)"></div></span>
 		                                        </td>
-		                                        <!--<td nowarp >
-		                                        	<span class="badge bg-purple"><div data-toggle="modal" data-target="#modal-default" class="fa fa-pencil"  @click="editModal = true; selectDepartment(department)" ></div></div>
-		                                    		<span class="badge bg-red"><div data-toggle="modal" data-target="#modal-danger"  class="fa fa-trash" @click="deleteModal= true; selectDepartment(department)"></div></div>
-		                                        </td>-->
 	                                    	</tr>
 
 	                                </tbody>

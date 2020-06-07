@@ -1,5 +1,5 @@
 import  DepartmentCreateTemplate  from "../../templates/department-templates/create-template.js";
-import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning} from "../../global.js";
+import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning,headerConfig} from "../../global.js";
 
 const DepartmentCreate = {
 	template: DepartmentCreateTemplate,
@@ -20,10 +20,11 @@ const DepartmentCreate = {
 	methods: {
 		getAllBranchesAndShifts(){
 			var vm = this;
-			axios.get(base_url+"api/departments/create")
+			axios.get(base_url+"api/departments/create",headerConfig())
     		.then(function (response) {
     			 vm.branches = response.data.data.branchList;
-    			 vm.shifts = response.data.data.shiftList;	
+    			 /*vm.shifts = response.data.data.shiftList;	*/
+    			 // console.log(vm.shifts);
     		})
     		.catch(function (error) {
     			console.log(error.response);
@@ -31,7 +32,7 @@ const DepartmentCreate = {
 		},
 		createDepartment(){
 			var vm = this;
-			axios.post(base_url+"api/departments",vm.fromInput)
+			axios.post(base_url+"api/departments",vm.fromInput,headerConfig())
     		.then(function (response) {
     			// console.log(response);	
     			vm.$router.push({ name: "DepartmentList"});
@@ -44,6 +45,18 @@ const DepartmentCreate = {
 				// sweetAlert(error.response.data.heading,error.response.data.message)
             });
 		},
+		findShift(){
+			var id = this.fromInput.branches_id;
+			var vm = this;
+			axios.get(base_url+"api/findShiftByBranch/"+id,headerConfig())
+    		.then(function (response) {
+    			 // console.log(response.data.data);	
+    			 vm.shifts = response.data.data;
+    		})
+    		.catch(function (error) {
+    			console.log(error.response.data.heading)
+            });
+		}
 	
 	},
 	
