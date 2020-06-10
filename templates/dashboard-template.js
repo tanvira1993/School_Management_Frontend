@@ -130,6 +130,24 @@ const DashboardTemplate = `
         </ul>
 
       </li>
+
+
+
+      <!-- ============= Grade =============== --> 
+
+
+      <li class="treeview">
+
+        <a href="#">
+            <i class="fa fa-bullseye"></i> <span>Grade</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+            <li><router-link to="/grades"><i class="fa fa-circle-o"></i> Grades <router-link></li>
+            <li><router-link to="/conventional-grading"><i class="fa fa-circle-o"></i> Conventional Grading <router-link></li>
+            
+        </ul>
+
+      </li>
       
  
 

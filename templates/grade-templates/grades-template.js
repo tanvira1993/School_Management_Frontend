@@ -1,15 +1,13 @@
-const MaterialTransferTemplate = `
+const GradesTemplate = `
 <div>
 
-
-
-    <section class="content-header">
+<section class="content-header">
         <h1>
-            Material Transfer History
+            Grades
         </h1>
             <ol class="breadcrumb">
                 <li><router-link to="/"><i class="fa fa-dashboard"></i> Dashboard<router-link></li>
-                <li class="active"><a href="">material transfer List</a></li>
+                <li class="active"><a href="">Grades List</a></li>
             </ol>
     </section>
 
@@ -24,8 +22,6 @@ const MaterialTransferTemplate = `
 
 
 
-
-
                         <!-- createModal-content-start -->
 
 		                <div class="modal fade" id="modal-default-create" v-if="createModal">
@@ -34,38 +30,32 @@ const MaterialTransferTemplate = `
 					                <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Transfer Materials</h4>
+                                        <h4 class="modal-title">Add Grade</h4>
                                     </div>
 
                                     <div class="modal-body">
 
                                         <div class="form-group">
+                                            <label class="required-field">Name &nbsp</label>
+                                            <input  class="form-control" placeholder="Please enter name" v-model="newGrade.name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="required-field">Grade Type &nbsp</label>
+                                            <input  class="form-control" placeholder="Please enter type" v-model="newGrade.grade_type">
+                                        </div>
+
+                                        <div class="form-group">
                                             <label class="required-field">Branch &nbsp</label>
-                                            <select class="form-control" v-model="newTransfer.branches_id">
+                                            <select class="form-control" v-model="newGrade.branches_id">
                                                 <option disabled>Select Branch</option>
                                                 <option v-for="branch in branches" :value="branch.id">{{ branch.name }}</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="required-field">Materials &nbsp</label>
-                                            <select class="form-control" v-model="newTransfer.materials_id">
-                                                <option disabled>Select materials</option>
-                                                <option v-for="material in materials" :value="material.id">{{ material.name }}</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="required-field">Quantity &nbsp</label>
-                                            <input  class="form-control" placeholder="Please enter amount" v-model="newTransfer.quantity">
-                                        </div>
-                                      
-                                        <div class="form-group">
-                                            <label class="required-field">Inventory Location &nbsp</label>
-                                            <select class="form-control" v-model="newTransfer.inventory_locations_id">
-                                                <option disabled>Select Location</option>
-                                                <option v-for="location in locations" :value="location.id">{{ location.name }}</option>
-                                            </select>
+                                            <label class="required-field">Class &nbsp</label>
+                                            <input  class="form-control" placeholder="Please enter class" v-model="newGrade.classes_id">
                                         </div>
 										
 									</div>
@@ -83,8 +73,6 @@ const MaterialTransferTemplate = `
 
 
 
-
-
                         <!-- editModal-content-start -->
 
 		                <div class="modal fade" id="modal-default" v-if="editModal">
@@ -93,10 +81,20 @@ const MaterialTransferTemplate = `
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title"><b>Edit Transfered History</b></h4>
+										<h4 class="modal-title"><b>Edit grade information</b></h4>
                                     </div>
                                     
                                     <div class="modal-body">
+
+                                        <div class="form-group">
+                                            <label class="required-field">Name &nbsp</label>
+                                            <input  class="form-control" v-model="clickedItem.name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="required-field">Grade Type &nbsp</label>
+                                            <input  class="form-control" placeholder="Please enter type" v-model="clickedItem.grade_type">
+                                        </div>
 
                                         <div class="form-group">
                                             <label class="required-field">Branch &nbsp</label>
@@ -105,27 +103,10 @@ const MaterialTransferTemplate = `
                                                 <option v-for="branch in branches" :value="branch.id">{{ branch.name }}</option>
                                             </select>
                                         </div>
-                                    
 
                                         <div class="form-group">
-                                            <label class="required-field">Materials &nbsp</label>
-                                            <select class="form-control" v-model="clickedItem.materials_id">
-                                                <option disabled>Select materials</option>
-                                                <option v-for="material in materials" :value="material.id">{{ material.name }}</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="required-field">Quantity &nbsp</label>
-                                            <input  class="form-control" v-model="clickedItem.quantity">
-                                        </div>
-                                      
-                                        <div class="form-group">
-                                            <label class="required-field">Inventory Location &nbsp</label>
-                                            <select class="form-control" v-model="clickedItem.inventory_locations_id">
-                                                <option disabled>Select Location</option>
-                                                <option v-for="location in locations" :value="location.id">{{ location.name }}</option>
-                                            </select>
+                                            <label class="required-field">Class &nbsp</label>
+                                            <input  class="form-control" v-model="clickedItem.classes_id">
                                         </div>
 										
 
@@ -142,6 +123,7 @@ const MaterialTransferTemplate = `
                         <!--end edit modal-->
 
 
+
                         <!-- deleteModal-content-start -->
 
 						<div class="modal modal-danger fade" id="modal-danger" v-if="deleteModal">
@@ -151,7 +133,7 @@ const MaterialTransferTemplate = `
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title"><b>Selected materials transfer history will be deleted.</b></h4>
+										<h4 class="modal-title"><b>Selected grade will be deleted.</b></h4>
 									</div>
 
 									<div class="modal-body">
@@ -173,7 +155,6 @@ const MaterialTransferTemplate = `
 
 
 
-
                         <!-- /.data table -->
 
                         <div class="box-body table-responsive no-padding">
@@ -191,10 +172,10 @@ const MaterialTransferTemplate = `
                                                 <tr role="row">
                                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 225px;">SL NO</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 282px;">Action</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 260px;">Material Name</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 260px;">Quantity</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 260px;">Name</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 260px;">Grade Type</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 260px;">Branch Name</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 260px;">Location</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 260px;">Class</th>
                                                     
                                                 </tr>
 
@@ -202,16 +183,16 @@ const MaterialTransferTemplate = `
                                             
                                             <tbody>
                                                 
-                                                <tr role="row" class="odd" v-for="(transfer,i) in transfers" :key="i">
+                                                <tr role="row" class="odd" v-for="(grade,i) in grades" :key="i">
                                                     <td>{{i+1}}</td>
                                                     <td>
-                                                        <a data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-sm alert-warning fa fa-pencil" @click="editModal=true; clickedItem = transfer"></a>
-                                                        <a data-toggle="modal" data-target="#modal-danger"  class="btn btn-sm btn-danger fa fa-trash" @click="deleteModal= true; clickedItem = transfer"></a>
+                                                        <a data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-sm alert-warning fa fa-pencil" @click="editModal=true; clickedItem = grade"></a>
+                                                        <a data-toggle="modal" data-target="#modal-danger"  class="btn btn-sm btn-danger fa fa-trash" @click="deleteModal= true; clickedItem = grade"></a>
                                                     </td>
-                                                    <td>{{transfer.mName}}</td>
-                                                    <td>{{transfer.quantity}}</td>
-                                                    <td>{{transfer.bName}}</td>
-                                                    <td>{{transfer.lName}}</td>
+                                                    <td>{{grade.name}}</td>
+                                                    <td>{{grade.grade_type}}</td>
+                                                    <td>{{grade.bName}}</td>
+                                                    <td>{{grade.cName}}</td>
                                                 </tr>
                                                            
                                             </tbody></table></div></div>
@@ -233,8 +214,7 @@ const MaterialTransferTemplate = `
     </section>
 
 
-
 </div>
 `
 
-export default MaterialTransferTemplate
+export default GradesTemplate

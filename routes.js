@@ -17,6 +17,8 @@ import { MaterialTransfer } from './components/inventory/material-transfer.js'
 import { MaterialConsume } from './components/inventory/material-consume.js'
 import { MaterialRefund } from './components/inventory/material-refund.js'
 import { MaterialScrap } from './components/inventory/material-scrap.js'
+import { Grades } from './components/grade/grades.js'
+import { ConventionalGrading } from './components/grade/conventional-grading.js'
 
 
 
@@ -311,6 +313,12 @@ const routing =
 		{path: '/inventory/materials/consume', component: MaterialConsume, name: "MaterialConsume"},
 		{path: '/inventory/materials/refund', component: MaterialRefund, name: "MaterialRefund"},
 		{path: '/inventory/materials/scrap', component: MaterialScrap, name: "MaterialScrap"},
+
+
+		/*============================ Grades ===========================*/
+
+		{path: '/grades', component: Grades, name: "Grades"},
+		{path: '/conventional-grading', component: ConventionalGrading, name: "ConventionalGrading"},
 		
 
 
