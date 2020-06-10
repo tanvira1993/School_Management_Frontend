@@ -16,7 +16,7 @@ const ShiftCreateTemplate = `
             <!-- left column -->
             <div class="col-md-6">
                 <!-- general form elements -->
-                <div class="box box-primary">
+                <div class="box box-primary" style="border-top-color: #605ca8 !important">
                     <div class="box-header">
                     </div>
 
@@ -35,7 +35,7 @@ const ShiftCreateTemplate = `
 	                   	</div>
                     </div>
                     <div class="box-footer">
-                        <button type="button" class="btn btn-primary btn-sm" @click="createShift()">Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm" style="background-color: #605ca8 !important" @click="createShift()">Submit</button>
                     </div>
                 </form>
                 </div>

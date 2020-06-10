@@ -1,5 +1,5 @@
 import  ShiftCreateTemplate  from "../../templates/shift-templates/create-template.js";
-import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning} from "../../global.js";
+import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning,headerConfig} from "../../global.js";
 
 const ShiftCreate = {
 	template: ShiftCreateTemplate,
@@ -19,7 +19,7 @@ const ShiftCreate = {
 	methods: {
 		getAllBranches(){
 			var vm = this;
-			axios.get(base_url+"api/shifts/create")
+			axios.get(base_url+"api/shifts/create",headerConfig())
     		.then(function (response) {
     			 vm.branches = response.data.data;
     			// console.log(vm.branches);	
@@ -30,12 +30,12 @@ const ShiftCreate = {
 		},
     	createShift(){
 			var vm = this;
-			axios.post(base_url+"api/shifts",vm.fromInput)
+			axios.post(base_url+"api/shifts",vm.fromInput,headerConfig())
     		.then(function (response) {
     			// console.log(response);
     			vm.$router.push({ name: "ShiftList"});	
     			toasterSuccess(response.data.heading,response.data.message)
-
+				// sweetAlert(error.response.data.heading,error.response.data.message)
     		})
     		.catch(function (error) {
     			// console.log(error.response.data.heading);

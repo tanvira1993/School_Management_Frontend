@@ -1,8 +1,8 @@
-import  LibraryBooksCreateTemplate  from "../../../templates/library-templates/library-books-templates/create-template.js";
+import  LibraryCategoriesCreateTemplate  from "../../../templates/library-templates/library-categories-templates/create-template.js";
 import { base_url,sweetAlert,toasterSuccess,toasterError,headerConfig} from "../../../global.js";
 
-const LibraryBooksCreate = {
-	template: LibraryBooksCreateTemplate,
+const LibraryCategoriesCreate = {
+	template: LibraryCategoriesCreateTemplate,
 
 	data() {
 		return {
@@ -19,8 +19,8 @@ const LibraryBooksCreate = {
 	methods: {
 		getAllBranches(){
 			var vm = this;
-			axios.get(base_url+"api/libraryBooks/create",headerConfig())
-    	.then(function (response) {
+			axios.get(base_url+"api/libraryBookCategories/create",headerConfig())
+    		.then(function (response) {
     			vm.branches = response.data.data;
     			// console.log(vm.branches);	
     		})
@@ -28,29 +28,16 @@ const LibraryBooksCreate = {
     			console.log(error.response);
             });
 		},
-    createBook(){
+    createCategory(){
 			var vm = this;
-			axios.post(base_url+"api/libraryBooks",vm.fromInput,headerConfig())
+			axios.post(base_url+"api/libraryBookCategories",vm.fromInput,headerConfig())
     		.then(function (response) {
     			// console.log(response);	
-    			vm.$router.push({ name: "LibraryBooksList"});	
+    			vm.$router.push({ name: "LibraryCategoriesList"});	
     			toasterSuccess(response.data.heading,response.data.message)
     		})
     		.catch(function (error) {
     			console.log(error.response);
-    			console.log('error from library submit');
-
-    // 			const wrapper = document.createElement('div');
-				// wrapper.innerHTML = error.response.data.message;
-
-				// swal({
-				//   title: 'Test Title',
-				//   text: 'Test Text',
-				//   content: wrapper,
-				//   /*type: 'error'*/
-				//   dangerMode: true,
-
-				// });
 				toasterError(error.response.data.heading,error.response.data.message)
 				// sweetAlert(error.response.data.heading,error.response.data.message)
             });
@@ -63,4 +50,4 @@ const LibraryBooksCreate = {
 }
 
 
-export { LibraryBooksCreate }
+export { LibraryCategoriesCreate }

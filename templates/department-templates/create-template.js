@@ -16,7 +16,7 @@ const DepartmentCreateTemplate = `
             <!-- left column -->
             <div class="col-md-6">
                 <!-- general form elements -->
-                <div class="box box-primary">
+                <div class="box box-primary" style="border-top-color: #605ca8 !important">
                     <div class="box-header">
                     </div>
 
@@ -28,21 +28,21 @@ const DepartmentCreateTemplate = `
                         </div>
                         <div class="form-group">
                             <label class="required-field">Branch &nbsp</label>
-                            <select class="form-control" v-model="fromInput.branches_id">
+                            <select class="form-control" v-model="fromInput.branches_id" @change="findShift()">
                                 <option :value="null" disabled selected>Select Branch</option>
                                 <option v-for="branch in branches" v-bind:value="branch.id">{{ branch.name }}</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label class="required-field">Shift &nbsp</label>
-                            <select class="form-control" v-model="fromInput.shifts_id">
+                            <select :disabled="shifts.length == 0" class="form-control" v-model="fromInput.shifts_id" >
                                 <option :value="null" disabled selected>Select Shift</option>
                                 <option v-for="shift in shifts" v-bind:value="shift.id">{{ shift.name }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button type="button" class="btn btn-primary btn-sm" @click="createDepartment()">Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm" style="background-color: #605ca8 !important" @click="createDepartment()">Submit</button>
                     </div>
                 </form>
                 </div>

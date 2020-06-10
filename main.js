@@ -29,14 +29,14 @@ new Vue({
     mounted: async function(){ 
     	
     	await this.validateLogin();
-    	await this.headerConfig();
+    	/*await this.headerConfig();*/
     	
     	console.log("from main");
 
     },
     methods:{    	
 
-    	headerConfig (){
+    	/*headerConfig (){
     		const token = localStorage.getItem("token")
     		console.log('interceptor header==>',token)
     		const id = localStorage.getItem("idUser")
@@ -59,7 +59,7 @@ new Vue({
     			error => {
     				Promise.reject(error)
     			});
-    	},
+    	},*/
     	validateLogin (){
     		const self = this;
     		const url = base_url+"api/tokenValidate"

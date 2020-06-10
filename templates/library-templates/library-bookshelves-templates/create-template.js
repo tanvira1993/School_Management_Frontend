@@ -1,13 +1,13 @@
-const LibraryBooksCreateTemplate = `
+const LibraryBookshelvesCreateTemplate = `
 <div>
 
 	<section class="content-header">
 	    	<h1>
-	            Add Book
+	            Add Bookshelves
 	        </h1>
 	        <ol class="breadcrumb">
 	            <li><router-link to="/"><i class="fa fa-dashboard"></i> Dashboard<router-link></li>
-	            <li class="active"><router-link to="/organization/libraryBooks/list"> Book's List <router-link></li>
+	            <li class="active"><router-link to="/organization/libraryBookshelves/list"> Bookshelves's List <router-link></li>
 	        </ol>
 	</section>
 
@@ -23,8 +23,12 @@ const LibraryBooksCreateTemplate = `
                     <form>
                         <div class="box-body">
     					    <div class="form-group">
-                                <label class="required-field">Title &nbsp</label>
-                                <input  class="form-control" placeholder="Please enter book's name" v-model="fromInput.name">
+                                <label class="required-field">Name &nbsp</label>
+                                <input  class="form-control" placeholder="Please enter bookshelves's name" v-model="fromInput.name">
+                            </div>
+                            <div class="form-group">
+                                <label class="required-field">Rows &nbsp</label>
+                                <input  type="number" class="form-control" placeholder="Please enter bookshelves's no of rows" v-model="fromInput.quantity" @change="quantityValue">
                             </div>
                             <div class="form-group">
                                 <label class="required-field">Branch &nbsp</label>
@@ -35,7 +39,7 @@ const LibraryBooksCreateTemplate = `
                             </div>
                         </div>
                         <div class="box-footer">
-                            <button type="button" class="btn btn-primary btn-sm" style="background-color: #605ca8 !important" @click="createBook()">Submit</button>
+                            <button type="button" v-bind:class="{ 'disabled': disbutton,}" class="btn btn-primary btn-sm" style="background-color: #605ca8 !important" @click="createBookshelves()">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -50,4 +54,4 @@ const LibraryBooksCreateTemplate = `
 `
 
 
-export default LibraryBooksCreateTemplate
+export default LibraryBookshelvesCreateTemplate

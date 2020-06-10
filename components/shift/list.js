@@ -1,5 +1,5 @@
 import  ShiftListTemplate  from "../../templates/shift-templates/list-template.js";
-import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning} from "../../global.js";
+import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning,headerConfig} from "../../global.js";
   
 
 const ShiftList = {
@@ -9,7 +9,6 @@ const ShiftList = {
 		return {
 			editModal: false,
 			deleteModal: false,
-			fromInput:{name: '', branches_id: ''},
 			branches: {},
 		    shifts: {},
 		    clickedShift:{}
@@ -28,7 +27,7 @@ const ShiftList = {
 		},
 		getAllBranches(){
 			var vm = this;
-			axios.get(base_url+"api/shifts/create")
+			axios.get(base_url+"api/shifts/create",headerConfig())
     		.then(function (response) {
     			 vm.branches = response.data.data;
     			// console.log(vm.branches);	
@@ -39,7 +38,7 @@ const ShiftList = {
 		},
 		getAllShifts(){
 			var vm = this;
-			axios.get(base_url+"api/shifts")
+			axios.get(base_url+"api/shifts",headerConfig())
     		.then(function (response) {
     			 vm.shifts = response.data.data;
     		})
@@ -49,12 +48,11 @@ const ShiftList = {
     	},
     	selectShift(shift){
 			this.clickedShift = shift;
-			console.log(this.clickedShift);
 		},
     	updateShift(){
 			var id = this.clickedShift.id;
 			var vm = this;
-			axios.put(base_url+"api/shifts/"+id,vm.clickedShift)
+			axios.put(base_url+"api/shifts/"+id,vm.clickedShift,headerConfig())
     		.then(function (response) {
     			// console.log(response);
     			vm.getAllShifts();
@@ -71,14 +69,14 @@ const ShiftList = {
 		deleteShift(){
 			var id = this.clickedShift.id;
 			var vm = this;
-			axios.delete(base_url+"api/shifts/"+id)
+			axios.delete(base_url+"api/shifts/"+id,headerConfig())
     		.then(function (response) {
     			console.log(response);
     			vm.getAllShifts();
     			toasterSuccess(response.data.heading,response.data.message)
     		})
     		.catch(function (error) {
-    			console.log(error.response);
+    			console.log(error.response.data.data);
     			vm.getAllShifts();
     			toasterError(error.response.data.heading,error.response.data.message)
     			// sweetAlert(error.response.data.heading,error.response.data.message)

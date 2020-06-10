@@ -57,9 +57,11 @@
           display: block;
           z-index: 1;
         }
-
         .example-modal .modal {
           background: transparent !important;
+        }
+        .danger-span{
+            background-color: #da1f26 !important
         }
     </style>
 
@@ -148,7 +150,8 @@
                 'ordering'    : true,
                 'info'        : true,
                 'autoWidth'   : false
-            })
+            });
+            $('.select2').select2();
 })
     </script>
 

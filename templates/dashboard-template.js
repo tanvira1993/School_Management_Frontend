@@ -333,7 +333,53 @@ const DashboardTemplate = `
                     <li><router-link to="/organization/libraryBooks/list"><i class="fa fa-list-ol"></i>Book's List <router-link></li>
                   </ul>
                 </li>
+
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-cubes"></i> Categoriess
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><router-link to="/organization/libraryCategories/list"><i class="fa fa-list-ol"></i>Categories's List <router-link></li>
+                  </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-sort-amount-asc"></i> Bookshelves
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><router-link to="/organization/libraryBookshelves/list"><i class="fa fa-list-ol"></i>Bookshelves's List <router-link></li>
+                  </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-location-arrow"></i> Book Locations 
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><router-link to="/organization/libraryBookLocation/list"><i class="fa fa-list-ol"></i>Book Location's List <router-link></li>
+                  </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-tags"></i> Issue Books
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><router-link to="/organization/libraryIssueBook/list"><i class="fa fa-list-ol"></i>Issue Books's List <router-link></li>
+                  </ul>
+                </li>
+              
               </ul>
+            
             </li>
 
             <!-- =============Library menu ends=======================-->

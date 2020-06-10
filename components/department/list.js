@@ -1,6 +1,5 @@
 import  DepartmentListTemplate  from "../../templates/department-templates/list-template.js";
-import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning} from "../../global.js";
-  
+import { base_url,sweetAlert,toasterInfo,toasterSuccess,toasterError,toasterWarning,headerConfig} from "../../global.js";
 
 const DepartmentList = {
 	template: DepartmentListTemplate,
@@ -27,10 +26,10 @@ const DepartmentList = {
 		},
 		getAllBranchesAndShifts(){
 			var vm = this;
-			axios.get(base_url+"api/departments/create")
+			axios.get(base_url+"api/departments/create",headerConfig())
     		.then(function (response) {
     			 vm.branches = response.data.data.branchList;
-    			 vm.shifts = response.data.data.shiftList;	
+    			 // vm.shifts = response.data.data.shiftList;	
     		})
     		.catch(function (error) {
     			console.log(error.response);
@@ -38,7 +37,7 @@ const DepartmentList = {
 		},
 		getAllDepartments(){
 			var vm = this;
-			axios.get(base_url+"api/departments")
+			axios.get(base_url+"api/departments",headerConfig())
     		.then(function (response) {
     			 vm.departments = response.data.data;
     		})
@@ -46,29 +45,36 @@ const DepartmentList = {
     			console.log(error.response);
             });
     	},
-    	/*createDepartment(){
-			var vm = this;
-			axios.post(base_url+"api/departments",vm.fromInput)
-    		.then(function (response) {
-    			// console.log(response);	
-    			vm.getAllDepartments();
-    			toasterSuccess(response.data.heading,response.data.message)
-
-    		})
-    		.catch(function (error) {
-    			// console.log(error.response.data.heading);
-				toasterError(error.response.data.heading,error.response.data.message)
-				// sweetAlert(error.response.data.heading,error.response.data.message)
-            });
-		},*/
     	selectDepartment(department){
 			this.clickedDepartment = department;
+			var vm = this;
+			axios.get(base_url+"api/findShiftByBranch/"+ vm.clickedDepartment.branches_id,headerConfig())
+    		.then(function (response) {
+    			 // console.log(response.data.data);	
+    			 vm.shifts = response.data.data;
+    		})
+    		.catch(function (error) {
+    			console.log(error.response.data.heading)
+            });
 			// console.log(this.clickedDepartment);
 		},
+		findShift(){
+			// var id = this.fromInput.branches_id;
+			var vm = this;
+			axios.get(base_url+"api/findShiftByBranch/"+vm.clickedDepartment.branches_id,headerConfig())
+    		.then(function (response) {
+    			 // console.log(response.data.data);	
+    			 vm.shifts = response.data.data;
+    		})
+    		.catch(function (error) {
+    			console.log(error.response.data.heading)
+            });
+		},
     	updateDepartment(){
+    		console.log(this.clickedDepartment)
 			var id = this.clickedDepartment.id;
 			var vm = this;
-			axios.put(base_url+"api/departments/"+id,vm.clickedDepartment)
+			axios.put(base_url+"api/departments/"+id,vm.clickedDepartment,headerConfig())
     		.then(function (response) {
     			// console.log(response);
     			vm.getAllDepartments();
@@ -84,7 +90,7 @@ const DepartmentList = {
 		deleteDepartment(){
 			var id = this.clickedDepartment.id;
 			var vm = this;
-			axios.delete(base_url+"api/departments/"+id)
+			axios.delete(base_url+"api/departments/"+id,headerConfig())
     		.then(function (response) {
     			console.log(response);
     			vm.getAllDepartments();
