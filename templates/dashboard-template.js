@@ -147,6 +147,22 @@ const DashboardTemplate = `
             
         </ul>
 
+
+
+        <!-- ============= Class Route =============== --> 
+
+
+      <li class="treeview">
+
+        <a href="#">
+            <i class="fa fa-bullseye"></i> <span>Class</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+            <li><router-link to="/classes"><i class="fa fa-circle-o"></i> List <router-link></li>
+            <li><router-link to="/class-create"><i class="fa fa-circle-o"></i> Create <router-link></li>
+            
+        </ul>
+
       </li>
       
  
