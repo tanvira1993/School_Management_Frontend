@@ -19,7 +19,8 @@ import { MaterialRefund } from './components/inventory/material-refund.js'
 import { MaterialScrap } from './components/inventory/material-scrap.js'
 
 import { Grades } from './components/grade/grades.js'
-import { ConventionalGrading } from './components/grade/conventional-grading.js'
+import { ConventionalGradingList } from './components/grade/convention-grade/conventional-grading-list.js'
+import { ConventionalGradingCreate } from './components/grade/convention-grade/conventional-grading-create.js'
 
 import { ClassList } from './components/class/class-list.js'
 import { ClassCreate } from './components/class/class-create.js'
@@ -332,7 +333,9 @@ const routing =
 		/*============================ Grades ===========================*/
 
 		{path: '/grades', component: Grades, name: "Grades"},
-		{path: '/conventional-grading', component: ConventionalGrading, name: "ConventionalGrading"},
+
+		{path: '/conventional-grading-list', component: ConventionalGradingList, name: "ConventionalGradingList"},
+		{path: '/conventional-grading-create', component: ConventionalGradingCreate, name: "ConventionalGradingCreate"},
 
 
 		/*============================ Class Route ===========================*/

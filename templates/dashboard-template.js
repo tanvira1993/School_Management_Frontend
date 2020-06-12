@@ -143,9 +143,19 @@ const DashboardTemplate = `
         </a>
         <ul class="treeview-menu">
             <li><router-link to="/grades"><i class="fa fa-circle-o"></i> Grades <router-link></li>
-            <li><router-link to="/conventional-grading"><i class="fa fa-circle-o"></i> Conventional Grading <router-link></li>
+            <li class="treeview">
+
+              <a href="#">
+                  <i class="fa fa-bullseye"></i> <span>Conventional Grading</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+              </a>
+              <ul class="treeview-menu">
+                <li><router-link to="/conventional-grading-list"><i class="fa fa-circle-o"></i>List <router-link></li>
+                <li><router-link to="/conventional-grading-create"><i class="fa fa-circle-o"></i> Create Grading <router-link></li>
+              </ul>
+            </li>
             
         </ul>
+      </li>
 
 
 
