@@ -139,10 +139,21 @@ const DashboardTemplate = `
       <li class="treeview">
 
         <a href="#">
-            <i class="fa fa-bullseye"></i> <span>Grade</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+            <i class="fa fa-bullseye"></i> <span>Grading</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </a>
         <ul class="treeview-menu">
-            <li><router-link to="/grades"><i class="fa fa-circle-o"></i> Grades <router-link></li>
+
+            <li class="treeview">
+
+              <a href="#">
+                  <i class="fa fa-bullseye"></i> <span>Grades</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+              </a>
+              <ul class="treeview-menu">
+                <li><router-link to="/grades-list"><i class="fa fa-circle-o"></i>List <router-link></li>
+                <li><router-link to="/grades-create"><i class="fa fa-circle-o"></i> Create<router-link></li>
+              </ul>
+            </li>
+            
             <li class="treeview">
 
               <a href="#">

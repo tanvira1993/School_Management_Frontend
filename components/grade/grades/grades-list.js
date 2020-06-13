@@ -1,21 +1,22 @@
-import  GradesTemplate  from "../../templates/grade-templates/grades-template.js";
-import { base_url} from "../../global.js";
+import  GradesListTemplate  from "../../../templates/grade-templates/grades-templates/grades-list-template.js";
+import { base_url,sweetAlert,toasterSuccess,toasterError,headerConfig} from "../../../global.js";
 
 
-const Grades = {
-	template: GradesTemplate,
+const GradesList = {
+	template: GradesListTemplate,
 
-	data() {
+    data() {
 		return {
 			url : base_url+'api/',
 			createModal: false, editModal: false, deleteModal:false, branches: null,
-			grades: null, newGrade: {}, clickedItem: null,
+			grades: null, clickedItem: null, classes: null,
 		}
 	},
 
 	mounted() {
 		this.getGradesList();
 		this.getBranches();
+		this.getAllClass();
 	},
 	
 	methods: {
@@ -33,17 +34,19 @@ const Grades = {
             });
 		},
 
-		submit(){
+		getAllClass(){
 			var self = this;
-			this.newGrade.created_by = localStorage.getItem("idUser");
-            axios.post(this.url+"grades", this.newGrade).then(function(response){
-				self.getGradesList();
-				iziToast.success({    title: response.data.heading,    message: response.data.message });
-				self.newGrade = {};
-				
-			}).catch(function (error) {
-				iziToast.error({    title: error.response.data.heading,    message: error.response.data.message });
+			axios.get(this.url+"class",headerConfig())
+    		.then(function (response) {
+    			 self.classes = response.data.data;
+    			// console.log(vm.branches);	
+    		}).catch(function (error) {
+    			console.log(error.response);
             });
+		},
+
+		createGrade(){
+			this.$router.push({ name: "GradesCreate"});
 		},
 
 		update(){
@@ -71,7 +74,10 @@ const Grades = {
 		}
 	},
 
+    
+	
+	
 }
 
 
-export { Grades }
+export { GradesList }

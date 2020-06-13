@@ -1,13 +1,13 @@
-const ClassCreateTemplate = `
+const GradesCreateTemplate = `
 <div>
 
     <section class="content-header">
 	    	<h1>
-	            Classes
+	            Grades
 	        </h1>
 	        <ol class="breadcrumb">
 	            <li><router-link to="/"><i class="fa fa-dashboard"></i> Dashboard<router-link></li>
-	            <li class="active"><router-link to="/organization/libraryIssueBook/list"> all classes <router-link></li>
+	            <li class="active"><router-link to="/organization/libraryIssueBook/list"> Grades list <router-link></li>
 	        </ol>
 	</section>
 
@@ -22,28 +22,35 @@ const ClassCreateTemplate = `
 
                     <form>
                         <div class="box-body">
+                            
                             <div class="form-group">
                                 <label class="required-field">Name &nbsp</label>
-                                <input  class="form-control" placeholder="Please enter class name" v-model="newClass.name">
+                                <input  class="form-control" placeholder="Please enter name" v-model="newGrade.name">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="required-field">Grade Type &nbsp</label>
+                                <input  class="form-control" placeholder="Please enter type" v-model="newGrade.grade_type">
                             </div>
 
                             <div class="form-group">
                                 <label class="required-field">Branch &nbsp</label>
-                                <select class="form-control" v-model="newClass.branches_id">
-                                    <option :value="null" disabled selected>Select Category</option>
-                                    <option v-for="branch in branches" v-bind:value="branch.id">{{ branch.name }}</option>
+                                <select class="form-control" v-model="newGrade.branches_id">
+                                    <option disabled>Select Branch</option>
+                                    <option v-for="branch in branches" :value="branch.id">{{ branch.name }}</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label class="required-field">Department &nbsp</label>
-                                <select class="form-control" v-model="newClass.departments_id">
-                                    <option :value="null" disabled selected>Select Department</option>
-                                    <option v-for="department in departments" v-bind:value="department.id">{{ department.name }}</option>
+                                <label class="required-field">Class &nbsp</label>
+                                <select class="form-control" v-model="newGrade.classes_id">
+                                    <option disabled>Select Class</option>
+                                    <option v-for="cls in classes" :value="cls.id">{{ cls.name }}</option>
                                 </select>
                             </div>
                             
                         </div>
+
                         <div class="box-footer">
                             <button type="button" class="btn btn-primary btn-sm" style="background-color: #605ca8 !important" @click="submit()">Submit</button>
                         </div>
@@ -59,5 +66,4 @@ const ClassCreateTemplate = `
 </div>
 `
 
-
-export default ClassCreateTemplate
+export default GradesCreateTemplate

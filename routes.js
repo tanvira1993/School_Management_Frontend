@@ -18,7 +18,8 @@ import { MaterialConsume } from './components/inventory/material-consume.js'
 import { MaterialRefund } from './components/inventory/material-refund.js'
 import { MaterialScrap } from './components/inventory/material-scrap.js'
 
-import { Grades } from './components/grade/grades.js'
+import { GradesList } from './components/grade/grades/grades-list.js'
+import { GradesCreate } from './components/grade/grades/grades-create.js'
 import { ConventionalGradingList } from './components/grade/convention-grade/conventional-grading-list.js'
 import { ConventionalGradingCreate } from './components/grade/convention-grade/conventional-grading-create.js'
 
@@ -332,7 +333,8 @@ const routing =
 
 		/*============================ Grades ===========================*/
 
-		{path: '/grades', component: Grades, name: "Grades"},
+		{path: '/grades-list', component: GradesList, name: "GradesList"},
+		{path: '/grades-create', component: GradesCreate, name: "GradesCreate"},
 
 		{path: '/conventional-grading-list', component: ConventionalGradingList, name: "ConventionalGradingList"},
 		{path: '/conventional-grading-create', component: ConventionalGradingCreate, name: "ConventionalGradingCreate"},

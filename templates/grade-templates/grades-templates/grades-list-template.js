@@ -1,4 +1,4 @@
-const GradesTemplate = `
+const GradesListTemplate = `
 <div>
 
 <section class="content-header">
@@ -18,59 +18,7 @@ const GradesTemplate = `
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <div style="text-align: right;"><a data-toggle="modal" data-target="#modal-default-create" class="btn btn-primary btn-sm alert-success fa fa-plus" @click="createModal= true;">&nbsp Transfer materials</a> </div>
-
-
-
-                        <!-- createModal-content-start -->
-
-		                <div class="modal fade" id="modal-default-create" v-if="createModal">
-					        <div class="modal-dialog">
-					            <div class="modal-content">
-					                <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Add Grade</h4>
-                                    </div>
-
-                                    <div class="modal-body">
-
-                                        <div class="form-group">
-                                            <label class="required-field">Name &nbsp</label>
-                                            <input  class="form-control" placeholder="Please enter name" v-model="newGrade.name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="required-field">Grade Type &nbsp</label>
-                                            <input  class="form-control" placeholder="Please enter type" v-model="newGrade.grade_type">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="required-field">Branch &nbsp</label>
-                                            <select class="form-control" v-model="newGrade.branches_id">
-                                                <option disabled>Select Branch</option>
-                                                <option v-for="branch in branches" :value="branch.id">{{ branch.name }}</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="required-field">Class &nbsp</label>
-                                            <input  class="form-control" placeholder="Please enter class" v-model="newGrade.classes_id">
-                                        </div>
-										
-									</div>
-
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary" @click="submit()" data-dismiss="modal">Submit</button>
-									</div>
-									
-					            </div>
-					            
-					        </div>
-					    </div>				          
-                        <!-- /.createModal-content-end -->
-
+                        <div style="text-align: right;"><a data-toggle="modal" data-target="#modal-default-create" class="btn btn-primary btn-sm alert-success fa fa-plus" @click="createGrade();">&nbsp Add grades</a> </div>
 
 
                         <!-- editModal-content-start -->
@@ -106,7 +54,10 @@ const GradesTemplate = `
 
                                         <div class="form-group">
                                             <label class="required-field">Class &nbsp</label>
-                                            <input  class="form-control" v-model="clickedItem.classes_id">
+                                            <select class="form-control" v-model="clickedItem.classes_id">
+                                                <option disabled>Select Class</option>
+                                                <option v-for="cls in classes" :value="cls.id">{{ cls.name }}</option>
+                                            </select>
                                         </div>
 										
 
@@ -213,8 +164,7 @@ const GradesTemplate = `
         </div>
     </section>
 
-
 </div>
 `
 
-export default GradesTemplate
+export default GradesListTemplate
