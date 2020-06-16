@@ -153,6 +153,17 @@ const DashboardTemplate = `
                 <li><router-link to="/grades-create"><i class="fa fa-circle-o"></i> Create<router-link></li>
               </ul>
             </li>
+
+            <li class="treeview">
+
+              <a href="#">
+                  <i class="fa fa-bullseye"></i> <span>GPAs</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+              </a>
+              <ul class="treeview-menu">
+                <li><router-link to="/gpas-list"><i class="fa fa-circle-o"></i>List <router-link></li>
+                <li><router-link to="/gpas-create"><i class="fa fa-circle-o"></i> Create<router-link></li>
+              </ul>
+            </li>
             
             <li class="treeview">
 
@@ -181,6 +192,23 @@ const DashboardTemplate = `
         <ul class="treeview-menu">
             <li><router-link to="/classes"><i class="fa fa-circle-o"></i> List <router-link></li>
             <li><router-link to="/class-create"><i class="fa fa-circle-o"></i> Create <router-link></li>
+            
+        </ul>
+
+      </li>
+
+
+      <!-- ============= Notices Route =============== --> 
+
+
+      <li class="treeview">
+
+        <a href="#">
+            <i class="fa fa-bullseye"></i> <span>Notice</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+            <li><router-link to="/notices"><i class="fa fa-circle-o"></i> List <router-link></li>
+            <li><router-link to="/notices-create"><i class="fa fa-circle-o"></i> Create <router-link></li>
             
         </ul>
 

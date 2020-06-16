@@ -22,9 +22,14 @@ import { GradesList } from './components/grade/grades/grades-list.js'
 import { GradesCreate } from './components/grade/grades/grades-create.js'
 import { ConventionalGradingList } from './components/grade/convention-grade/conventional-grading-list.js'
 import { ConventionalGradingCreate } from './components/grade/convention-grade/conventional-grading-create.js'
+import { GPAList } from './components/grade/gpas/gpas-list.js'
+import { GPACreate } from './components/grade/gpas/gpas-create.js'
 
 import { ClassList } from './components/class/class-list.js'
 import { ClassCreate } from './components/class/class-create.js'
+
+import { NoticeList } from './components/notices/notice-list.js'
+import { NoticeCreate } from './components/notices/notice-create.js'
 
 
 
@@ -339,11 +344,21 @@ const routing =
 		{path: '/conventional-grading-list', component: ConventionalGradingList, name: "ConventionalGradingList"},
 		{path: '/conventional-grading-create', component: ConventionalGradingCreate, name: "ConventionalGradingCreate"},
 
+		{path: '/gpas-list', component: GPAList, name: "GPAList"},
+		{path: '/gpas-create', component: GPACreate, name: "GPACreate"},
+
 
 		/*============================ Class Route ===========================*/
 
 		{path: '/classes', component: ClassList, name: "ClassList"},
 		{path: '/class-create', component: ClassCreate, name: "ClassCreate"},
+
+		/*============================ Notices Route ===========================*/
+
+		{path: '/notices', component: NoticeList, name: "NoticeList"},
+		{path: '/notices-create', component: NoticeCreate, name: "NoticeCreate"},
+
+		
 		
 
 
