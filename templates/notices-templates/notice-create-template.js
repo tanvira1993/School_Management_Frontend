@@ -25,12 +25,12 @@ const NoticeCreateTemplate = `
 
                             <div class="form-group">
                                 <label class="required-field">Name &nbsp</label>
-                                <input type="text" class="form-control" placeholder="Please enter quantity of book" v-model="newNotice.name">
+                                <input type="text" class="form-control" placeholder="Please enter name" v-model="newNotice.name">
                             </div>
 
                             <div class="form-group">
                                 <label class="required-field">Description &nbsp</label>
-                                <input type="text" class="form-control" placeholder="Please enter quantity of book" v-model="newNotice.description">
+                                <input type="text" class="form-control" placeholder="Please enter a description" v-model="newNotice.description">
                             </div>
 
                             <div class="form-group">
