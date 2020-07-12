@@ -31,6 +31,9 @@ import { ClassCreate } from './components/class/class-create.js'
 import { NoticeList } from './components/notices/notice-list.js'
 import { NoticeCreate } from './components/notices/notice-create.js'
 
+import { SyllabusList } from './components/syllabuses/syllabus-list.js'
+import { SyllabusCreate } from './components/syllabuses/syllabus-create.js'
+
 
 
 
@@ -360,7 +363,10 @@ const routing =
 		{path: '/notices-create', component: NoticeCreate, name: "NoticeCreate"},
 
 		
-		
+		/*============================ Syllabus Route ===========================*/
+
+		{path: '/syllabus', component: SyllabusList, name: "SyllabusList"},
+		{path: '/syllabus-create', component: SyllabusCreate, name: "SyllabusCreate"},
 
 
 

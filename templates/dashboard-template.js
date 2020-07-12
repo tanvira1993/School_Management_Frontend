@@ -213,6 +213,22 @@ const DashboardTemplate = `
         </ul>
 
       </li>
+
+      <!-- ============= Syllabus Route =============== --> 
+
+
+      <li class="treeview">
+
+        <a href="#">
+            <i class="fa fa-bullseye"></i> <span>Syllabus</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+            <li><router-link to="/syllabus"><i class="fa fa-circle-o"></i> List <router-link></li>
+            <li><router-link to="/syllabus-create"><i class="fa fa-circle-o"></i> Create <router-link></li>
+            
+        </ul>
+
+      </li>
       
  
 
