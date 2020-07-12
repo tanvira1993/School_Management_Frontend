@@ -449,6 +449,19 @@ const DashboardTemplate = `
 
             <!-- =============Library menu ends=======================-->
 
+            <!-- ===================User menu starts================== -->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user-plus"></i> <span>User's Registartion</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><router-link to="/organization/user/list"><i class="fa fa-users"></i> User's List <router-link></li>
+                </ul>
+
+            </li>
+
+            <!-- ===================User menu endss================== -->
+
 
 
 

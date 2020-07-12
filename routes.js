@@ -95,7 +95,8 @@ import { ShiftCreate } from './components/shift/create.js'
 import { ShiftList } from './components/shift/list.js'
 import { DepartmentCreate } from './components/department/create.js'
 import { DepartmentList } from './components/department/list.js'
-
+import { UserCreate } from './components/user/create.js'
+import { UserList } from './components/user/list.js'
 
 
 
@@ -561,7 +562,9 @@ const routing =
 		/*============================ Department ============================*/
 		{path: '/organization/department/list', component: DepartmentList, name: "DepartmentList"},
 		{path: '/organization/department/create', component: DepartmentCreate, name: "DepartmentCreate"},
-
+		/*=============================== User ===============================*/
+		{path: '/organization/user/list', component: UserList, name: "UserList"},
+		{path: '/organization/user/create', component: UserCreate, name: "UserCreate"},
 
 
 
